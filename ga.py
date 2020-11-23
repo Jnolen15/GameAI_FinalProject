@@ -5,7 +5,7 @@ def ga():
     # Create Initial Species Population
     generation = 0
     test = Species.species(random.randint(0, 9), random.randint(0, 9), random.randint(0, 9), \
-                            random.randint(0, 9), random.randint(0, 9), random.randint(0, 9), \
+                            random.randint(0, 9), random.randint(0, 9), \
                             random.randint(0, 99), random.randint(0, 99), \
                             random.randint(0, 99), random.randint(0, 99), random.randint(0, 99))
     print("Initial: ", str(test))
@@ -37,18 +37,16 @@ def mutate(self):
     mutated = self
 
     # Picking a random basic stat to buff. This is mostly just to test rn
-    choice = random.randint(0, 5)
+    choice = random.randint(0, 4)
     if choice == 0:
         self.offense += random.randint(0, 6)
     if choice == 1:
         self.defense += random.randint(0, 6)
     if choice == 2:
-        self.aquatic += random.randint(0, 6)
-    if choice == 3:
         self.heatRes += random.randint(0, 6)
-    if choice == 4:
+    if choice == 3:
         self.coldRes += random.randint(0, 6)
-    if choice == 5:
+    if choice == 4:
         self.social += random.randint(0, 6)
 
     # Changing Other stats

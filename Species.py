@@ -2,13 +2,12 @@
 # Species Class
 class species:
     # A Species Stats
-    def __init__(self, offense=0, defense=0, aquatic=0, heatRes=0, \
+    def __init__(self, offense=0, defense=0, heatRes=0, \
                 coldRes=0, social=0, size=0, diet=0, swim=0, walk=0, fly=0):
         # BASIC STATS
         # Lowest stat score = 0, highest = 99
         self.offense = offense
         self.defense = defense
-        self.aquatic = aquatic
         self.heatRes = heatRes
         self.coldRes = coldRes
         self.social = social
@@ -56,9 +55,9 @@ class species:
         if self.fly > 50:
             moveTypes.append("Fly")
 
-        return "\n~~~~~Stats~~~~~ \nOffense: %s \nDefense: %s \nAquatic: %s \
+        return "\n~~~~~Stats~~~~~ \nOffense: %s \nDefense: %s \
                 \nHeatRes: %s \nColdRes: %s \nSocial: %s \nSize: %s \nDiet: %s \
                 \nMovement: %s" \
-                % (self.offense, self.defense, self.aquatic, self.heatRes, \
+                % (self.offense, self.defense, self.heatRes, \
                 self.coldRes, self.social, sizeType, dietType, moveTypes)
 
