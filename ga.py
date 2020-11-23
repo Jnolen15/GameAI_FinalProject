@@ -36,13 +36,45 @@ def mutate(self):
     # cause mutation
     mutated = self
 
-    # Picking a random stat to buff. This is mostly just to test rn
-    choice = random.randint(0, 1)
+    # Picking a random basic stat to buff. This is mostly just to test rn
+    choice = random.randint(0, 5)
     if choice == 0:
-        self.offense += random.randint(0, 4)
+        self.offense += random.randint(0, 6)
     if choice == 1:
-        self.defense += random.randint(0, 4)
+        self.defense += random.randint(0, 6)
+    if choice == 2:
+        self.aquatic += random.randint(0, 6)
+    if choice == 3:
+        self.heatRes += random.randint(0, 6)
+    if choice == 4:
+        self.coldRes += random.randint(0, 6)
+    if choice == 5:
+        self.social += random.randint(0, 6)
 
+    # Changing Other stats
+    choice = random.randint(0, 2)
+    if choice == 0: # Size
+        choice2 = random.randint(0, 1)
+        if choice2 == 0:
+            self.size -= random.randint(0, 10)
+        if choice2 == 1:
+            self.size += random.randint(0, 10)
+    if choice == 1: # Diet
+        choice2 = random.randint(0, 1)
+        if choice2 == 0:
+            self.diet -= random.randint(0, 10)
+        if choice2 == 1:
+            self.diet += random.randint(0, 10)
+    if choice == 2: # Movement
+        choice2 = random.randint(0, 2)
+        if choice2 == 0:
+            self.fly += random.randint(0, 10)
+        if choice2 == 1:
+            self.walk += random.randint(0, 10)
+        if choice2 == 1:
+            self.swim += random.randint(0, 10)
+
+    
     return mutated
 
 if __name__ == "__main__":
