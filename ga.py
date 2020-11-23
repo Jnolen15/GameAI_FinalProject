@@ -4,7 +4,10 @@ import random
 def ga():
     # Create Initial Species Population
     generation = 0
-    test = Species.species(random.randint(0, 9), random.randint(0, 9))
+    test = Species.species(random.randint(0, 9), random.randint(0, 9), random.randint(0, 9), \
+                            random.randint(0, 9), random.randint(0, 9), random.randint(0, 9), \
+                            random.randint(0, 99), random.randint(0, 99), \
+                            random.randint(0, 99), random.randint(0, 99), random.randint(0, 99))
     print("Initial: ", str(test))
     population = [test]
     while True:
@@ -33,10 +36,10 @@ def mutate(self):
     # cause mutation
     mutated = self
 
-    skills = [self.attack, self.defense]
+    # Picking a random stat to buff. This is mostly just to test rn
     choice = random.randint(0, 1)
     if choice == 0:
-        self.attack += random.randint(0, 4)
+        self.offense += random.randint(0, 4)
     if choice == 1:
         self.defense += random.randint(0, 4)
 
