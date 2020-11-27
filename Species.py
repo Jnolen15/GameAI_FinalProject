@@ -27,23 +27,25 @@ class species:
     def __str__(self):
         
         # Size
+        sizeType = "ERROR"
         if self.size >= 0 and self.size <= 19:
             sizeType = "Tiny"
-        if self.size >= 20 and self.size <= 39:
+        elif self.size >= 20 and self.size <= 39:
             sizeType = "Small"
-        if self.size >= 40 and self.size <= 59:
+        elif self.size >= 40 and self.size <= 59:
             sizeType = "Medium"
-        if self.size >= 60 and self.size <= 79:
+        elif self.size >= 60 and self.size <= 79:
             sizeType = "large"
-        if self.size >= 80 and self.size <= 99:
+        elif self.size >= 80 and self.size <= 99:
             sizeType = "Huge"
 
         # Diet
+        dietType = "ERROR"
         if self.diet >= 70:
             dietType = "Carnivore"
-        if self.diet >= 30 and self.diet <= 69:
+        elif self.diet >= 30 and self.diet <= 69:
             dietType = "Omnivore"
-        if self.diet <= 29:
+        elif self.diet <= 29:
             dietType = "Herbavore"
 
         # Movement 
