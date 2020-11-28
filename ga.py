@@ -1,26 +1,43 @@
 import Species
 import random
 
-def randomSpecies():
+def randomSpecies(): # Creates a species with random stats This can be improved
     randSpecies = Species.species(random.randint(0, 9), random.randint(0, 9), random.randint(0, 9), \
-                            random.randint(0, 9), random.randint(0, 9), \
-                            random.randint(0, 99), random.randint(0, 99), \
-                            random.randint(0, 99), random.randint(0, 99), random.randint(0, 99))
+                                random.randint(0, 9), random.randint(0, 9), random.randint(0, 99), \
+                                random.randint(0, 99), random.randint(0, 99), random.randint(0, 99),\
+                                random.randint(0, 99))
     return randSpecies
 
+def randomWorld(): # Creates a world with random stats This can be improved
+    randWorld = Species.species(random.randint(49, 99), random.randint(49, 99), random.randint(49, 99), \
+                                random.randint(49, 99), random.randint(49, 99), random.randint(0, 99), \
+                                random.randint(0, 99), random.randint(0, 99), random.randint(0, 99),\
+                                random.randint(0, 99), "WORLD", "The world State")
+    return randWorld
+
 def ga():
-    # Create Initial Species Population
+    
     generation = 0
     population = []
+    # Create Initial Species Population
     for i in range(6):
         population.append(randomSpecies())
-    while True:
+    # Create world State
+    worldState = randomWorld()
+    print("WORLD STATE: ", worldState)
+    # Generation Loo
+    while True: 
+        # Generate 6 new children
         next_pop = gen_successors(population)
         generation += 1
+        # Calculate fitness new population
+        # Print them out
         print("Generation: ", str(generation))
         for child in next_pop:
             print("Child: " , str(child))
+        # Set current pop to new pop
         population = next_pop
+        # Break
         input("Press Enter to continue...")
 
 
@@ -39,7 +56,8 @@ def gen_children(self, other):
                             random.choice(parents).heatRes, random.choice(parents).coldRes, \
                             random.choice(parents).social, random.choice(parents).size, \
                             random.choice(parents).diet, random.choice(parents).swim, \
-                            random.choice(parents).walk, random.choice(parents).fly)
+                            random.choice(parents).walk, random.choice(parents).fly, \
+                            self.name, self.meaning)
     new_genome = mutate(child)
     return new_genome
 

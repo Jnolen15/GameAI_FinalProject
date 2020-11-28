@@ -23,9 +23,12 @@ class species:
         self.fly = fly
 
         # Name
-        nameTuple = nameSelect()
-        self.name = nameTuple[0]
-        self.meaning = nameTuple[1]
+        self.name = name
+        self.meaning = meaning
+        if self.name == "" or self.meaning == "":
+            nameTuple = nameSelect()
+            self.name = nameTuple[0]
+            self.meaning = nameTuple[1]
 
     # Print functions
     def __repr__(self):
