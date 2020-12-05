@@ -1,0 +1,12 @@
+{
+    "Operations" :{
+        "Grow gills": {
+            "Requirements" : {
+                "swim" : [1, "Less than"]
+            },
+            "Changes" : {
+                "swim" : 1
+            }
+        }
+    }
+}
