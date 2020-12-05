@@ -1,4 +1,5 @@
 import random
+import uuid
 
 # Species Class
 class species:
@@ -7,20 +8,31 @@ class species:
                 coldRes=0, social=0, size=0, diet=0, swim=0, walk=0, fly=0, name="", meaning=""):
         # BASIC STATS
         # Lowest stat score = 0, highest = 99
-        self.offense = offense
-        self.defense = defense
-        self.heatRes = heatRes
-        self.coldRes = coldRes
-        self.social = social
+
+        self.id = uuid.uuid4()
+        # Should be set whenever generating children (see generate_children in ga_v2)
+        self.parent_ids = [None, None]
+        self.stats = {}
+
+
+
+        self.stats['offense'] = offense
+        self.stats['defense'] = defense
+        self.stats['heatRes'] = heatRes
+        self.stats['coldRes'] = coldRes
+        self.stats['social'] = social
         # OTHER STATS
         # SIZE: (in increments of 20) tiny -> small -> medium -> large -> huge
-        self.size = size
+        self.stats['size'] = size
         # DIET: 0-29: Herbavore 30-69: Omnivore 70-99: Carnivore
-        self.diet = diet
+        self.stats['diet'] = diet
         # MOVEMENT: If a stat is above 50 then they can do it
-        self.swim = swim
-        self.walk = walk
-        self.fly = fly
+        self.stats['swim'] = swim
+        self.stats['walk'] = walk
+        self.stats['fly'] = fly
+
+        # This only stays if the creature's genome is basically a "list" of evolution increments
+        self.evolutions = []
 
         # Name
         self.name = name
@@ -30,47 +42,66 @@ class species:
             self.name = nameTuple[0]
             self.meaning = nameTuple[1]
 
+    def add_increment(self, evolution_increment):
+      self.evolutions.append(evolution_increment)
+      for (attribute, adjustment) in evolution_increment.items():
+        self.stats[attribute] += adjustment
+
+    def print_increments(self):
+      return (', '.join(['{{ {} }}'.format(', '.join(['{}: {:.2f}'.format(attr[:3], quant) for (attr, quant) in evolution.items()]))
+                       for evolution in self.evolutions]))
+
+    def calc_fitness(self, world):
+        penalty = 0
+        attributes = self.stats.keys()
+        for attribute in attributes:
+          penalty += abs(self.stats[attribute] - world.stats[attribute])
+
+        return -penalty
+
+
+
     # Print functions
     def __repr__(self):
         return "species()"
     def __str__(self):
-        
+
         # Size
         sizeType = "ERROR"
-        if self.size >= 0 and self.size <= 19:
+        if self.stats['size'] >= 0 and self.stats['size'] <= 19:
             sizeType = "Tiny"
-        elif self.size >= 20 and self.size <= 39:
+        elif self.stats['size'] >= 20 and self.stats['size'] <= 39:
             sizeType = "Small"
-        elif self.size >= 40 and self.size <= 59:
+        elif self.stats['size'] >= 40 and self.stats['size'] <= 59:
             sizeType = "Medium"
-        elif self.size >= 60 and self.size <= 79:
+        elif self.stats['size'] >= 60 and self.stats['size'] <= 79:
             sizeType = "large"
-        elif self.size >= 80 and self.size <= 99:
+        elif self.stats['size'] >= 80 and self.stats['size'] <= 99:
             sizeType = "Huge"
 
         # Diet
         dietType = "ERROR"
-        if self.diet >= 70:
+        if self.stats['diet'] >= 70:
             dietType = "Carnivore"
-        elif self.diet >= 30 and self.diet <= 69:
+        elif self.stats['diet'] >= 30 and self.stats['diet'] <= 69:
             dietType = "Omnivore"
-        elif self.diet <= 29:
+        elif self.stats['diet'] <= 29:
             dietType = "Herbavore"
 
-        # Movement 
+        # Movement
         moveTypes = []
-        if self.swim > 50:
+        if self.stats['swim'] > 50:
             moveTypes.append("Swim")
-        if self.walk > 50:
+        if self.stats['walk'] > 50:
             moveTypes.append("Walk")
-        if self.fly > 50:
+        if self.stats['fly'] > 50:
             moveTypes.append("Fly")
 
         return "\n~~~~~Stats~~~~~ \nName: %s \nMeaning: %s \nOffense: %s \nDefense: %s \
                 \nHeatRes: %s \nColdRes: %s \nSocial: %s \nSize: %s \nDiet: %s \
                 \nMovement: %s" \
-                % (self.name, self.meaning, self.offense, self.defense, self.heatRes, \
-                self.coldRes, self.social, sizeType, dietType, moveTypes)
+                % (self.name, self.meaning, self.stats['offense'], self.stats['defense'], self.stats['heatRes'], \
+                self.stats['coldRes'], self.stats['social'], sizeType, dietType, moveTypes)
 
 def nameSelect():
     # Dictionary of roots + meanings
@@ -80,7 +111,7 @@ def nameSelect():
         "archaeo" : "ancient",
         "micro" : "small",
     }
-    
+
     suffix = {
         "tops" : "face",
         "saur" : "lizard",
