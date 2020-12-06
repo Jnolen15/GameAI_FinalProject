@@ -13,6 +13,7 @@ class species:
         # Should be set whenever generating children (see generate_children in ga_v2)
         self.parent_ids = [None, None]
         self.stats = {}
+        self.saved_fitness = None
 
 
 
@@ -51,6 +52,11 @@ class species:
       return (', '.join(['{{ {} }}'.format(', '.join(['{}: {:.2f}'.format(attr[:3], quant) for (attr, quant) in evolution.items()]))
                        for evolution in self.evolutions]))
 
+    # Used to store the fitness relative to what the world looked like when the given individual
+    # was born.
+    def set_saved_fitness(self, world):
+        self.saved_fitness = self.calc_fitness(world)
+
     def calc_fitness(self, world):
         penalty = 0
         attributes = self.stats.keys()
@@ -59,7 +65,22 @@ class species:
 
         return -penalty
 
+    def mutate(self):
 
+        # Mutation probability
+        if random.random() > 0.3:
+            return
+
+        max_stats_that_can_change = 3
+        change_range = 4
+
+        stats = list(self.stats.keys())
+        num_stats_to_change = random.choice(range(1, max_stats_that_can_change + 1))
+        stats_to_change = random.choices(stats, k=num_stats_to_change)
+
+        for stat_to_change in stats_to_change:
+            # Random negative or positive change
+            self.stats[stat_to_change] += random.choice(range(-change_range, change_range + 1))
 
     # Print functions
     def __repr__(self):
