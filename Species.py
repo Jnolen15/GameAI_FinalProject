@@ -61,9 +61,9 @@ class species:
         penalty = 0
         attributes = self.stats.keys()
         for attribute in attributes:
-          penalty += abs(self.stats[attribute] - world.stats[attribute])
+          penalty += (self.stats[attribute] - world.stats[attribute])
 
-        return -penalty
+        return penalty
 
     def mutate(self):
 
@@ -71,6 +71,26 @@ class species:
         if random.random() > 0.3:
             return
 
+        # Redistribution way
+        # Either increases one stat and slightly decreases another
+        # or randomly decreases one stat
+        # or randomly Increases one stat
+        stats = list(self.stats.keys())
+        stat_to_change = random.choice(stats)
+        another_stat_to_change = random.choice(stats)
+        while another_stat_to_change == stat_to_change:
+            another_stat_to_change = random.choice(stats)
+        choice = random.random()
+        if choice > 0.5: # Buff one nerf another
+            self.stats[stat_to_change] += random.choice(range(6, 12))
+            self.stats[another_stat_to_change] -= random.choice(range(2, 10))
+        elif choice <= 0.5 and choice > 0.1: # Nerf one
+            self.stats[stat_to_change] -= random.choice(range(2, 10))
+        elif choice <= 0.1: # Buff one
+            self.stats[stat_to_change] += random.choice(range(6, 12))
+
+        # Random few stats are changed way
+        """
         max_stats_that_can_change = 3
         change_range = 4
 
@@ -81,6 +101,7 @@ class species:
         for stat_to_change in stats_to_change:
             # Random negative or positive change
             self.stats[stat_to_change] += random.choice(range(-change_range, change_range + 1))
+        """
 
     # Print functions
     def __repr__(self):
