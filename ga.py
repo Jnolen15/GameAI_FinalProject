@@ -63,7 +63,10 @@ def ga():
 
         def check_evolutionary_milestone():
             # stubbing this out. For now, it happens every so often
-            return random.random() < 0.075
+            #return random.random() < 0.075
+            # Picking based on the fitness of the best current population
+            if max_child.calc_fitness(worldState) > 0:
+                return True
 
         # If we've reached an evolutionary milestone:
         # get the lineage of parents up till this point,
@@ -88,7 +91,7 @@ def ga():
 
             lineage.reverse()
 
-            print('Lineage: {}'.format(', '.join([p.name for p in lineage])))
+            print('Lineage: {}'.format(', '.join([str(p) for p in lineage])))
             print('Num world state changes: {}'.format(len(worldState_record)))
 
             # At this point, we have a lineage & world state record to pass to GOAP
