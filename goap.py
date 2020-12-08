@@ -45,3 +45,27 @@ def init():
     with open("GOAP_Actions.json") as f:
         Explanations = json.load(f)
     #Really hope this is correct global syntax
+
+
+# Main method that deals with running GOAP on each pair and outputting results
+def explain_full(sequence):
+    #Initialise the file
+    if not Explanations:
+        init()
+
+    # For now, going to run GOAP over every pair.
+    for i in range(len(sequence)-1):
+        search(sequence[i], sequence[i+1])
+
+# Actually runs the GOAP
+def search(start, finish):
+    pass
+# Normalises the values of the genome into a small variety of integers
+def normalise(genome):
+    for name in genome:
+        #Need to hardcode different ranges
+        if name == "offense" or name == "defense" or name == "heatRes" or name == "coldRes" or name == "social":
+            genome[name] == int(genome[name] / 3)
+        else:
+            genome[name] == int(genome[name]/33)
+    pass
