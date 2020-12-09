@@ -169,9 +169,33 @@ def gen_children(parent1, parent2):
     child = Species.species()
     stats = list(parent1.stats.keys())
 
+    # "Pull" crossover
+    # Picks a parent for base stats then pulls the stats in the direction of the other parent
+    # If parent 2 has a low stat it will decrease a little. and vice versa if higher
+    # Child gets stats of first parent
+    for stat in stats:
+        child.stats[stat] = parent1.stats[stat]
+    # Stats are pulled twords second parent
+    for stat in stats:
+        if parent1.stats[stat] > parent2.stats[stat]: # If parent2 stat is lower
+            diff = abs(parent1.stats[stat] - parent2.stats[stat])
+            child.stats[stat] -= ((diff - (diff % 5)) / 5)
+        elif parent1.stats[stat] < parent2.stats[stat]: # If parent2 stat is higher
+            diff = abs(parent1.stats[stat] - parent2.stats[stat])
+            child.stats[stat] += ((diff - (diff % 5)) / 5)
+    #print("PARENT 1~~~~~~~~~")
+    #print(parent1)
+    #print("PARENT 2~~~~~~~~~")
+    #print(parent2)
+    #print("CHILD ~~~~~~~~~")
+    #print(child)
+
+    """
     # Random choice between two parents' choices for stat.
+    # I think this might be called like checkerboard crossover
     for stat in stats:
         child.stats[stat] = random.choice(parents).stats[stat]
+    """
 
     # Set parent IDs for new child
     child.parent_ids = [parent1.id, parent2.id]

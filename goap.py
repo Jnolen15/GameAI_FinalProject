@@ -29,7 +29,6 @@ def makeRequirement(changes):
             if requirement[1] == "Equal":
                 if state[attribute] != requirement:
                     return False
-
             if requirement[1] == "Less than":
                 if state[attribute] <= requirement:
                     return False
@@ -37,15 +36,14 @@ def makeRequirement(changes):
                 if state[attribute] >= requirement:
                     return False
         return True
-
     return requirement
+
 #Only want to initialise the possible changes once, so function for it
 def init():
     global Explanations
     with open("GOAP_Actions.json") as f:
         Explanations = json.load(f)
     #Really hope this is correct global syntax
-
 
 # Main method that deals with running GOAP on each pair and outputting results
 def explain_full(sequence):
@@ -60,6 +58,7 @@ def explain_full(sequence):
 # Actually runs the GOAP
 def search(start, finish):
     pass
+
 # Normalises the values of the genome into a small variety of integers
 def normalise(genome):
     for name in genome:
