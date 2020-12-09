@@ -148,10 +148,22 @@ class species:
 def nameSelect():
     # Dictionary of roots + meanings
     prefix = {
-        "elasmo" : "metal plated",
+        "stegos" : "plated",
         "thallasso" : "sea",
         "archaeo" : "ancient",
         "micro" : "small",
+        "brachio" : "arm",
+        "bronte" : "thunder",
+        "di" : "two",
+        "deino" : "terrible",
+        "gravis" : "heavy",
+        "frigo" : "cold",
+        "glyco" : "sweet",
+        "makros" : "long",
+        "megalo" : "large",
+        "saltus" : "leaping",
+        "teratos" : "monster",
+        "tri" : "three",
     }
 
     suffix = {
@@ -159,6 +171,17 @@ def nameSelect():
         "saur" : "lizard",
         "dactyl" : "reptile",
         "rex" : "king",
+        "ceratops" : "horned face",
+        "dipus" : "two-footed",
+        "gnathus" : "jaw",
+        "mimus" : "imitator",
+        "nychus" : "claw",
+        "ops" : "face",
+        "odon" : "teeth",
+        "pus" : "foot",
+        "raptor" : "theif",
+        "rhinos" : "nose",
+        "venator" : "hunter",
     }
     randName = ""
     nameDef = ""

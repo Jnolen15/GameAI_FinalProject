@@ -91,7 +91,7 @@ def ga():
 
             lineage.reverse()
 
-            print('Lineage: {}'.format(', '.join([str(p) for p in lineage])))
+            print('Lineage: {}'.format(', '.join([p.name for p in lineage])))
             print('Num world state changes: {}'.format(len(worldState_record)))
 
             # At this point, we have a lineage & world state record to pass to GOAP
@@ -156,19 +156,19 @@ def gen_successors(population, world_state):
     child_pop = []
     while len(child_pop) < population_size:
         parents = random.choices(selected_parents, k=2)
-        child_pop.extend(gen_children(parents[0], parents[1]))
+        child_pop.extend(gen_children(parents[0], parents[1], world_state))
 
     return child_pop
 
 
-def gen_children(parent1, parent2):
+def gen_children(parent1, parent2, world_state):
     # generate children from given parents
     parents = [parent1, parent2]
 
     # crossover
     child = Species.species()
     stats = list(parent1.stats.keys())
-
+    
     # "Pull" crossover
     # Picks a parent for base stats then pulls the stats in the direction of the other parent
     # If parent 2 has a low stat it will decrease a little. and vice versa if higher
@@ -183,12 +183,6 @@ def gen_children(parent1, parent2):
         elif parent1.stats[stat] < parent2.stats[stat]: # If parent2 stat is higher
             diff = abs(parent1.stats[stat] - parent2.stats[stat])
             child.stats[stat] += ((diff - (diff % 5)) / 5)
-    #print("PARENT 1~~~~~~~~~")
-    #print(parent1)
-    #print("PARENT 2~~~~~~~~~")
-    #print(parent2)
-    #print("CHILD ~~~~~~~~~")
-    #print(child)
 
     """
     # Random choice between two parents' choices for stat.
@@ -201,8 +195,8 @@ def gen_children(parent1, parent2):
     child.parent_ids = [parent1.id, parent2.id]
 
     # Copy name and meaning
-    child.name = parent1.name
-    child.meaning = parent1.meaning
+    child.name = random.choice(parents).name
+    #child.meaning = parent1.meaning
 
     # Mutate
     child.mutate()
