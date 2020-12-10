@@ -8,6 +8,78 @@
                 "swim" : 1
             },
             "Message" : "has evolved to have gills, adapting it to aquatic environments."
+        },
+        "Grow a fin": {
+            "Requirements" : {},
+            "Changes" : {
+                "swim" : 1
+            },
+            "Message" : "Grew an extra fin, allowing it to swim more deptly."
+        },
+        "Grew sharper teeth": {
+            "Requirements" : {},
+            "Changes" : {
+                "offense" : 1
+            },
+            "Message" : "grew sharper teeth, letting it rip in to the flesh of its hapless prey."
+        },
+        "Honed senses": {
+            "Requirements" : {},
+            "Changes" : {
+                "defense" : 1
+            },
+            "Message" : "developed a sharper sense of hearing, letting it detect danger."
+        },
+        "Grew a coat of fur": {
+            "Requirements" : {},
+            "Changes" : {
+                "coldRes" : 1
+            },
+            "Message" : "developed a thick fur to keep it warm"
+        },
+        "Developed more sweat glands": {
+            "Requirements" : {},
+            "Changes" : {
+                "heatRes" : 1
+            },
+            "Message" : "developed its ability to cool itself evaporatively"
+        },
+        "Developed better vocal chords": {
+            "Requirements" : {},
+            "Changes" : {
+                "social" : 1
+            },
+            "Message" : "developed new vocalizations that let it signal its fellow pack."
+        },
+        "Grew in size": {
+            "Requirements" : {},
+            "Changes" : {
+                "size" : 1
+            },
+            "Message" : "grew bigger."
+        },
+        "Grew a stronger metabolism": {
+            "Requirements" : {},
+            "Changes" : {
+                "diet" : 1
+            },
+            "Message" : "Grew a stronger stomach, letting it digest both flora and fauna."
+        },
+        "Grew legs": {
+            "Requirements" : {},
+            "Changes" : {
+                "walk" : 1
+            },
+            "Message" : "Developed legs, allowing it to propel itself across land"
+        },
+        "Grew wings": {
+            "Requirements" : {},
+            "Changes" : {
+                "fly" : 1
+            },
+            "Message" : "Developed wings, allowing it to soar through the air."
         }
+
+
     }
 }
