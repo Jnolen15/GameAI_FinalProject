@@ -85,6 +85,9 @@ def graph(state):
 def search(start, finish):
     frontQueue = []
     heappush(frontQueue, (0, start))
+    action_to_state = {}
+    came_from = {}
+    cost_so_far = {}
     action_to_state[start] = None
     came_from[start] = None
     cost_so_far[start] = 0
