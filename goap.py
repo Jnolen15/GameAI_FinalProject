@@ -20,7 +20,7 @@ Change = namedtuple('Change', ['name', 'check', 'effect', "cost"])
 def makeChange(changes):
     def effect(state):
         next_state = state.copy()
-        for attribute, change in changes["Changes"]:
+        for attribute, change in changes["Changes"].items():
             next_state.stats[attribute] += change
         
         return next_state
@@ -30,15 +30,15 @@ def makeChange(changes):
 # Should really make restrictions too
 def makeRequirement(changes):
     def requirement(state):
-        for attribute, requirement in changes["Requirements"]:
+        for attribute, requirement in changes["Requirements"].items():
             if requirement[1] == "Equal":
-                if state.stats[attribute] != requirement:
+                if state.stats[attribute] != requirement[0]:
                     return False
             if requirement[1] == "Less than":
-                if state.stats[attribute] <= requirement:
+                if state.stats[attribute] <= requirement[0]:
                     return False
             if requirement[1] == "Greater than":
-                if state.stats[attribute] >= requirement:
+                if state.stats[attribute] >= requirement[0]:
                     return False
         return True
     return requirement
@@ -59,7 +59,7 @@ def explain_full(sequence):
     #Do same with changes
     global all_changes
     all_changes = []
-    for name, change_original in Explanations.items():
+    for name, change_original in Explanations["Operations"].items():
         checker = makeRequirement(change_original)
         effector = makeChange(change_original)
         change = Change(name, checker, effector, 1)
