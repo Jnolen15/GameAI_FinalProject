@@ -1,5 +1,6 @@
 import json
 from heapq import heappop, heappush
+from collections import namedtuple, defaultdict, OrderedDict
 # put goap stuff here
 
 #Model will be that all changes from 1 genome to the next will get normalised to 1, 2, or 3 (probably), 
