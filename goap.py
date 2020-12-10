@@ -59,8 +59,8 @@ def explain_full(sequence):
     #Do same with changes
     global all_changes
     for name, change_original in Explanations.items():
-        checker = makeRequirement(rule)
-        effector = makeChange(rule)
+        checker = makeRequirement(change_original)
+        effector = makeChange(change_original)
         change = Change(name, checker, effector, 1)
         all_changes.append(change)
     # For now, going to run GOAP over every pair.
