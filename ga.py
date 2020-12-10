@@ -1,4 +1,5 @@
 import Species
+import goap
 import random
 import time
 import numpy as np
@@ -96,6 +97,7 @@ def ga():
 
             # At this point, we have a lineage & world state record to pass to GOAP
             print('Call GOAP here!')
+            goap.explain_full(lineage)
             print('==================================')
             time.sleep(5)
 
