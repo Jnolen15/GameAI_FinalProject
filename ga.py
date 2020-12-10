@@ -60,7 +60,7 @@ def ga():
         print("Generation: ", str(generation))
         max_child = max(next_pop, key=lambda p: p.calc_fitness(worldState))
         print("Max child fitness: {}".format(max_child.calc_fitness(worldState)))
-        time.sleep(1)
+        #time.sleep(1)
 
         def check_evolutionary_milestone():
             # stubbing this out. For now, it happens every so often
@@ -99,7 +99,7 @@ def ga():
             print('Call GOAP here!')
             goap.explain_full(lineage)
             print('==================================')
-            time.sleep(5)
+            #time.sleep(5)
 
             # Reset tracked population & world states
             population_record.clear()
@@ -129,7 +129,7 @@ def ga():
             new_worldState = get_evolved_world(worldState)
             worldState_record.append(new_worldState)
             print('The world is changing!')
-            time.sleep(5)
+            #time.sleep(5)
 
 
 
