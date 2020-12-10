@@ -95,7 +95,7 @@ def search(start, finish):
         _, current_state = heappop(frontQueue)
     #----------------------------------------------------------------
     #is what happens if we find destination
-        if is_goal(current_state):
+        if current_state == finish:
             #print (cost_so_far[current_state])
             pathCells = []
             cs = current_state
@@ -104,7 +104,6 @@ def search(start, finish):
                 pathCells.append((cs, action)) #append previous state and the action
                 cs = came_from[cs] #go back one, this has to be on the end because otherwise we might be putting in None. I guess I can do while came_from[cs] is not none but too late im sticking with it
             pathCells.reverse()
-            final_time = time() - start_time
             return pathCells
     #-----------------------------------------------------------------
 
