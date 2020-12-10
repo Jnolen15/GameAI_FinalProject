@@ -58,6 +58,7 @@ def explain_full(sequence):
 
     #Do same with changes
     global all_changes
+    all_changes = []
     for name, change_original in Explanations.items():
         checker = makeRequirement(change_original)
         effector = makeChange(change_original)
