@@ -144,6 +144,10 @@ class species:
                 \nMovement: %s" \
                 % (self.name, self.meaning, self.stats['offense'], self.stats['defense'], self.stats['heatRes'], \
                 self.stats['coldRes'], self.stats['social'], sizeType, dietType, moveTypes)
+                
+    # Copy function
+    def copy(self):
+        return species(self)
 
 def nameSelect():
     # Dictionary of roots + meanings
