@@ -149,6 +149,14 @@ class species:
     def copy(self):
         return species(self)
 
+    # Comparison function
+    def __gt__(self, other):
+        return self.saved_fitness > other.saved_fitness
+    def __lt__(self, other):
+        return self.saved_fitness < other.saved_fitness
+    def __eq__(self, other):
+        return self.saved_fitness == other.saved_fitness
+
 def nameSelect():
     # Dictionary of roots + meanings
     prefix = {
