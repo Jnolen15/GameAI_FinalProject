@@ -157,6 +157,13 @@ class species:
     def __eq__(self, other):
         return self.saved_fitness == other.saved_fitness
 
+    #Copied from p5 to allow for stuff
+    def __key(self):
+        return tuple(self.stats.items())
+
+    def __hash__(self):
+        return hash(self.__key())
+
 def nameSelect():
     # Dictionary of roots + meanings
     prefix = {
