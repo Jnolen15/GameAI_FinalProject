@@ -15,7 +15,7 @@ Explanations = False
 all_changes = False
 #Going off of how P5 did it:
 
-Change = namedtuple('Change', ['name', 'check', 'effect', "cost"])
+Change = namedtuple('Change', ['name', 'check', 'effect', "cost", "description"])
 
 #Takes JSON objects/dictionaries and turns them into functions
 def makeChange(changes):
@@ -69,7 +69,7 @@ def explain_full(sequence):
     for name, change_original in Explanations["Operations"].items():
         checker = makeRequirement(change_original)
         effector = makeChange(change_original)
-        change = Change(name, checker, effector, 1)
+        change = Change(name, checker, effector, 1, change_original["Message"])
         all_changes.append(change)
 
     #Normalise all the values in the genomes
@@ -97,7 +97,7 @@ def graph(state):
     # to the given state, and the cost for the rule.
     for r in all_changes:
         if r.check(state):
-            yield (r.name, r.effect(state), r.cost)
+            yield (r.name, r.effect(state), r.cost, r.description)
 
 # Actually runs the GOAP
 def search(start, finish):
@@ -126,7 +126,7 @@ def search(start, finish):
             return pathCells
     #-----------------------------------------------------------------
 
-        for name, new_state, cost_to_state in graph(current_state):
+        for name, new_state, cost_to_state, description in graph(current_state):
             cost = cost_to_state
             new_cost = cost_so_far[current_state] + cost
             if new_cost != inf and (new_state not in cost_so_far or new_cost < cost_so_far[new_state]):
@@ -135,7 +135,7 @@ def search(start, finish):
                 priority = new_cost + heuristic(new_state, name)
                 heappush(frontQueue, (priority, new_state))
                 came_from[new_state] = current_state
-                action_to_state[new_state] = name
+                action_to_state[new_state] = description
     pass
 
 # Normalises the values of the genome into a small variety of integers
