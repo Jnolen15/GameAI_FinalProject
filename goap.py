@@ -21,7 +21,13 @@ Change = namedtuple('Change', ['name', 'check', 'effect', "cost"])
 def makeChange(changes):
     def effect(state):
         next_state = state.copy()
+        print("state")
+        print(state)
+        print("next state")
+        print(next_state)
+        
         for attribute, change in changes["Changes"].items():
+            print (type(next_state.stats[attribute]))
             next_state.stats[attribute] += change
         
         return next_state

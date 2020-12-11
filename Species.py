@@ -147,6 +147,7 @@ class species:
                 self.stats['coldRes'], self.stats['social'], sizeType, dietType, moveTypes)
                 
     # Copy function
+    import copy # put this at the top  
     def copy(self):
         return copy.deepcopy(self)
 
@@ -157,6 +158,13 @@ class species:
         return self.saved_fitness < other.saved_fitness
     def __eq__(self, other):
         return self.saved_fitness == other.saved_fitness
+
+    #Copied from p5 to allow for stuff
+    def __key(self):
+        return tuple(self.stats.items())
+
+    def __hash__(self):
+        return hash(self.__key())
 
 def nameSelect():
     # Dictionary of roots + meanings
