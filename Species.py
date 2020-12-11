@@ -1,5 +1,6 @@
 import random
 import uuid
+import copy
 
 # Species Class
 class species:
@@ -146,8 +147,9 @@ class species:
                 self.stats['coldRes'], self.stats['social'], sizeType, dietType, moveTypes)
                 
     # Copy function
+    import copy # put this at the top  
     def copy(self):
-        return species(self)
+        return copy.deepcopy(self)
 
     # Comparison function
     def __gt__(self, other):
