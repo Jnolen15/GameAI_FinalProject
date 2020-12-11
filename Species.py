@@ -90,6 +90,13 @@ class species:
         elif choice <= 0.1: # Buff one
             self.stats[stat_to_change] += random.choice(range(6, 12))
 
+        # Making sure stats are between 0 and 99
+        for stat in self.stats:
+            if self.stats[stat] < 0:
+                self.stats[stat] = 0
+            elif self.stats[stat] > 99:
+                self.stats[stat] = 99
+
         # Random few stats are changed way
         """
         max_stats_that_can_change = 3

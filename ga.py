@@ -121,6 +121,13 @@ def ga():
             stat_to_change = random.choice(list(current_world_state.stats.keys()))
 
             next_world_state.stats[stat_to_change] += change * direction
+
+            # Making sure stats are between 0 and 99
+            for stat in next_world_state.stats:
+                if next_world_state.stats[stat] < 0:
+                    next_world_state.stats[stat] = 0
+                elif next_world_state.stats[stat] > 99:
+                    next_world_state.stats[stat] = 99
             return next_world_state
 
 
