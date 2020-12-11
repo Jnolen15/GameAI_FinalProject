@@ -1,0 +1,514 @@
+{
+    "Evolution0": {
+        "Requirements": {
+            "offense": [
+                2,
+                "Less Than"
+            ]
+        },
+        "Changes": {
+            "heatRes": -2,
+            "offense": 1,
+            "diet": 1
+        },
+        "Message": "more powerful muscles and metablism, making for a more formidable, but easily-exhausted predator"
+    },
+    "Evolution1": {
+        "Requirements": {
+            "defense": [
+                0,
+                "Greater Than"
+            ]
+        },
+        "Changes": {
+            "social": 2,
+            "defense": -1,
+            "walk": -1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution2": {
+        "Requirements": {
+            "social": [
+                1,
+                "Greater Than"
+            ]
+        },
+        "Changes": {
+            "social": 1,
+            "coldRes": 1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution3": {
+        "Requirements": {},
+        "Changes": {
+            "heatRes": -2,
+            "walk": 1,
+            "fly": 1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution4": {
+        "Requirements": {},
+        "Changes": {
+            "defense": 1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution5": {
+        "Requirements": {},
+        "Changes": {
+            "fly": -1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution6": {
+        "Requirements": {},
+        "Changes": {
+            "heatRes": -2,
+            "offense": 2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution7": {
+        "Requirements": {
+            "diet": [
+                1,
+                "Less Than"
+            ]
+        },
+        "Changes": {
+            "size": -2,
+            "diet": 2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution8": {
+        "Requirements": {},
+        "Changes": {
+            "offense": 1,
+            "heatRes": 1,
+            "fly": -2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution9": {
+        "Requirements": {},
+        "Changes": {
+            "fly": -2,
+            "defense": 1,
+            "offense": 1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution10": {
+        "Requirements": {},
+        "Changes": {
+            "walk": 1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution11": {
+        "Requirements": {},
+        "Changes": {
+            "diet": 1,
+            "heatRes": 1,
+            "defense": -2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution12": {
+        "Requirements": {},
+        "Changes": {
+            "size": 1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution13": {
+        "Requirements": {},
+        "Changes": {
+            "defense": 2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution14": {
+        "Requirements": {
+            "coldRes": [
+                2,
+                "Less Than"
+            ],
+            "social": [
+                1,
+                "Less Than"
+            ],
+            "heatRes": [
+                0,
+                "Greater Than"
+            ]
+        },
+        "Changes": {
+            "coldRes": -1,
+            "social": -1,
+            "heatRes": 2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution15": {
+        "Requirements": {
+            "diet": [
+                1,
+                "Greater Than"
+            ]
+        },
+        "Changes": {
+            "diet": -1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution16": {
+        "Requirements": {},
+        "Changes": {
+            "social": -1,
+            "walk": -1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution17": {
+        "Requirements": {},
+        "Changes": {
+            "defense": -1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution18": {
+        "Requirements": {},
+        "Changes": {
+            "fly": 2,
+            "heatRes": -2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution19": {
+        "Requirements": {},
+        "Changes": {
+            "swim": -2,
+            "walk": 1,
+            "offense": 1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution20": {
+        "Requirements": {},
+        "Changes": {
+            "offense": 1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution21": {
+        "Requirements": {
+            "offense": [
+                1,
+                "Greater Than"
+            ]
+        },
+        "Changes": {
+            "offense": 1,
+            "heatRes": 1,
+            "walk": -2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution22": {
+        "Requirements": {},
+        "Changes": {
+            "diet": -1,
+            "fly": 2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution23": {
+        "Requirements": {
+            "fly": [
+                0,
+                "Greater Than"
+            ]
+        },
+        "Changes": {
+            "fly": -1,
+            "size": -1,
+            "heatRes": 2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution24": {
+        "Requirements": {
+            "coldRes": [
+                1,
+                "Greater Than"
+            ]
+        },
+        "Changes": {
+            "walk": 2,
+            "coldRes": -1,
+            "offense": -1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution25": {
+        "Requirements": {},
+        "Changes": {
+            "coldRes": -1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution26": {
+        "Requirements": {},
+        "Changes": {
+            "size": -2,
+            "social": 1,
+            "coldRes": 1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution27": {
+        "Requirements": {},
+        "Changes": {
+            "size": 2,
+            "offense": -1,
+            "walk": -1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution28": {
+        "Requirements": {},
+        "Changes": {
+            "diet": -2,
+            "fly": 1,
+            "walk": 1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution29": {
+        "Requirements": {
+            "swim": [
+                1,
+                "Less Than"
+            ]
+        },
+        "Changes": {
+            "swim": 2,
+            "offense": -2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution30": {
+        "Requirements": {
+            "coldRes": [
+                1,
+                "Less Than"
+            ]
+        },
+        "Changes": {
+            "heatRes": -1,
+            "fly": -1,
+            "coldRes": 2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution31": {
+        "Requirements": {},
+        "Changes": {
+            "offense": -2,
+            "size": 2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution32": {
+        "Requirements": {
+            "offense": [
+                2,
+                "Less Than"
+            ]
+        },
+        "Changes": {
+            "diet": -1,
+            "offense": -1,
+            "heatRes": 2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution33": {
+        "Requirements": {},
+        "Changes": {
+            "coldRes": 1,
+            "walk": 1,
+            "offense": -2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution34": {
+        "Requirements": {
+            "defense": [
+                1,
+                "Less Than"
+            ]
+        },
+        "Changes": {
+            "defense": -1,
+            "fly": 2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution35": {
+        "Requirements": {},
+        "Changes": {
+            "diet": 2,
+            "social": -1,
+            "size": -1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution36": {
+        "Requirements": {
+            "coldRes": [
+                0,
+                "Greater Than"
+            ]
+        },
+        "Changes": {
+            "swim": -1,
+            "walk": -1,
+            "coldRes": 2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution37": {
+        "Requirements": {},
+        "Changes": {
+            "fly": -2,
+            "defense": 2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution38": {
+        "Requirements": {
+            "walk": [
+                1,
+                "Less Than"
+            ]
+        },
+        "Changes": {
+            "walk": 2,
+            "fly": -1,
+            "size": -1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution39": {
+        "Requirements": {
+            "fly": [
+                1,
+                "Less Than"
+            ]
+        },
+        "Changes": {
+            "coldRes": -2,
+            "fly": 1,
+            "social": 1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution40": {
+        "Requirements": {},
+        "Changes": {
+            "coldRes": 2,
+            "size": -2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution41": {
+        "Requirements": {},
+        "Changes": {
+            "heatRes": 1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution42": {
+        "Requirements": {},
+        "Changes": {
+            "walk": -1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution43": {
+        "Requirements": {
+            "diet": [
+                0,
+                "Greater Than"
+            ]
+        },
+        "Changes": {
+            "diet": 1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution44": {
+        "Requirements": {},
+        "Changes": {
+            "coldRes": -2,
+            "fly": 2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution45": {
+        "Requirements": {},
+        "Changes": {
+            "social": -2,
+            "diet": 2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution46": {
+        "Requirements": {
+            "walk": [
+                0,
+                "Greater Than"
+            ]
+        },
+        "Changes": {
+            "walk": -1,
+            "coldRes": 2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution47": {
+        "Requirements": {},
+        "Changes": {
+            "diet": 2,
+            "size": -2
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution48": {
+        "Requirements": {
+            "offense": [
+                2,
+                "Less Than"
+            ]
+        },
+        "Changes": {
+            "offense": 1,
+            "walk": 1
+        },
+        "Message": "Mesage goes here"
+    },
+    "Evolution49": {
+        "Requirements": {},
+        "Changes": {
+            "heatRes": 2,
+            "defense": -1
+        },
+        "Message": "Mesage goes here"
+    }
+}
