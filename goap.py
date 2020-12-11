@@ -15,19 +15,19 @@ Explanations = False
 all_changes = False
 #Going off of how P5 did it:
 
-Change = namedtuple('Change', ['name', 'check', 'effect', "cost"])
+Change = namedtuple('Change', ['name', 'check', 'effect', "cost", "description"])
 
 #Takes JSON objects/dictionaries and turns them into functions
 def makeChange(changes):
     def effect(state):
         next_state = state.copy()
-        print("state")
-        print(state)
-        print("next state")
-        print(next_state)
+        #print("state")
+        #print(state)
+        #print("next state")
+        #print(next_state)
         
         for attribute, change in changes["Changes"].items():
-            print (type(next_state.stats[attribute]))
+            #print (type(next_state.stats[attribute]))
             next_state.stats[attribute] += change
         
         return next_state
@@ -69,18 +69,25 @@ def explain_full(sequence):
     for name, change_original in Explanations["Operations"].items():
         checker = makeRequirement(change_original)
         effector = makeChange(change_original)
-        change = Change(name, checker, effector, 1)
+        change = Change(name, checker, effector, 1, change_original["Message"])
         all_changes.append(change)
 
     #Normalise all the values in the genomes
     for genome in sequence:
         normalise(genome)
+
+    # This shouldn't be necessary but:
+
     # For now, going to run GOAP over every pair.
     for i in range(len(sequence)-1):
+        #print("Start")
+        #print(sequence[i])
+        #print("Goal")
+        #print(sequence[i+1])
         path = search(sequence[i], sequence[i+1])
-        print("Generation " + (i+1))
+        print("Generation " + str(i+1))
         for value in path:
-            print(sequence[i].name + value)
+            print(sequence[i].name + " " + value[1])
             
 
 #Same as in P5, constructs the objects that we then search through
@@ -90,7 +97,7 @@ def graph(state):
     # to the given state, and the cost for the rule.
     for r in all_changes:
         if r.check(state):
-            yield (r.name, r.effect(state), r.cost)
+            yield (r.name, r.effect(state), r.cost, r.description)
 
 # Actually runs the GOAP
 def search(start, finish):
@@ -106,11 +113,12 @@ def search(start, finish):
         _, current_state = heappop(frontQueue)
     #----------------------------------------------------------------
     #is what happens if we find destination
-        if current_state.stats == finish.stats:
+        if all([finish.stats[key] == current_state.stats[key] for key in current_state.stats.keys()]):
+            #print ("finished")
             #print (cost_so_far[current_state])
             pathCells = []
             cs = current_state
-            while cs is not state:
+            while cs is not start:
                 action = action_to_state[cs] #action to lead up to previous state
                 pathCells.append((cs, action)) #append previous state and the action
                 cs = came_from[cs] #go back one, this has to be on the end because otherwise we might be putting in None. I guess I can do while came_from[cs] is not none but too late im sticking with it
@@ -118,7 +126,7 @@ def search(start, finish):
             return pathCells
     #-----------------------------------------------------------------
 
-        for name, new_state, cost_to_state in graph(current_state):
+        for name, new_state, cost_to_state, description in graph(current_state):
             cost = cost_to_state
             new_cost = cost_so_far[current_state] + cost
             if new_cost != inf and (new_state not in cost_so_far or new_cost < cost_so_far[new_state]):
@@ -127,17 +135,20 @@ def search(start, finish):
                 priority = new_cost + heuristic(new_state, name)
                 heappush(frontQueue, (priority, new_state))
                 came_from[new_state] = current_state
-                action_to_state[new_state] = name
+                action_to_state[new_state] = description
     pass
 
 # Normalises the values of the genome into a small variety of integers
 def normalise(genome):
     for name in genome.stats:
+        #print(name)
         #Need to hardcode different ranges
         if name == "offense" or name == "defense" or name == "heatRes" or name == "coldRes" or name == "social":
-            genome.stats[name] == int(genome.stats[name] / 3)
+            #print (genome.stats[name])
+            genome.stats[name] = int(genome.stats[name] / 3)
+            #print (genome.stats[name])
         else:
-            genome.stats[name] == int(genome.stats[name]/33)
+            genome.stats[name] = int(genome.stats[name]/33)
     pass
 # For now, blank
 def heuristic(state, name):
