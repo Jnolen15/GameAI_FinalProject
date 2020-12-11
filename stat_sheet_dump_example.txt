@@ -102,12 +102,12 @@
         },
         "Message": "wings of stone, perfect for protective postures and blunt trauma strikes - but obviously not fit for flying"
     },
-    "Evolution10": {
+    "More legs": {
         "Requirements": {},
         "Changes": {
             "walk": 1
         },
-        "Message": "Mesage goes here"
+        "Message": "Several more joints, best for propelling across land."
     },
     "Evolution11": {
         "Requirements": {},
