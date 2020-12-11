@@ -1,6 +1,7 @@
 import json
 from heapq import heappop, heappush
 from collections import namedtuple, defaultdict, OrderedDict
+from math import inf, ceil
 # put goap stuff here
 
 #Model will be that all changes from 1 genome to the next will get normalised to 1, 2, or 3 (probably), 
@@ -64,6 +65,10 @@ def explain_full(sequence):
         effector = makeChange(change_original)
         change = Change(name, checker, effector, 1)
         all_changes.append(change)
+
+    #Normalise all the values in the genomes
+    for genome in sequence:
+        normalise(genome)
     # For now, going to run GOAP over every pair.
     for i in range(len(sequence)-1):
         path = search(sequence[i], sequence[i+1])
@@ -95,7 +100,7 @@ def search(start, finish):
         _, current_state = heappop(frontQueue)
     #----------------------------------------------------------------
     #is what happens if we find destination
-        if current_state == finish:
+        if current_state.stats == finish.stats:
             #print (cost_so_far[current_state])
             pathCells = []
             cs = current_state
