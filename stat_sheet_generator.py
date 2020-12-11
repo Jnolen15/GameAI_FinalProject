@@ -2,7 +2,7 @@ import json
 species_attributes = ['offense', 'defense', 'heatRes', 'coldRes', 'social', 'size', 'diet', 'swim', 'walk', 'fly']
 import random
 
-f = open("stat_sheet_dump.txt", "w")
+f = open("stat_sheet_dump_example.txt", "w")
 
 num_rolls = 50
 max_changes = 3

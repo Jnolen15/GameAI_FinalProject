@@ -1,5 +1,5 @@
 {
-    "Evolution0": {
+    "Stronger but tired easily": {
         "Requirements": {
             "offense": [
                 2,
@@ -13,7 +13,7 @@
         },
         "Message": "more powerful muscles and metablism, making for a more formidable, but easily-exhausted predator"
     },
-    "Evolution1": {
+    "A calmer, stronger mind": {
         "Requirements": {
             "defense": [
                 0,
@@ -25,9 +25,9 @@
             "defense": -1,
             "walk": -1
         },
-        "Message": "Mesage goes here"
+        "Message": "a stronger mind to communicate, and with it less of a need to run and defend."
     },
-    "Evolution2": {
+    "Cooperation for shelter": {
         "Requirements": {
             "social": [
                 1,
@@ -38,40 +38,40 @@
             "social": 1,
             "coldRes": 1
         },
-        "Message": "Mesage goes here"
+        "Message": "a rich spoken language that it coordinate in packs to build fires and shelters from the cold"
     },
-    "Evolution3": {
+    "A lighter coat": {
         "Requirements": {},
         "Changes": {
             "heatRes": -2,
             "walk": 1,
             "fly": 1
         },
-        "Message": "Mesage goes here"
+        "Message": "a lighter coat that let it move faster, but left it more exposed to frigid winds."
     },
-    "Evolution4": {
+    "Camoflauge": {
         "Requirements": {},
         "Changes": {
             "defense": 1
         },
-        "Message": "Mesage goes here"
+        "Message": "A complex-patterned skin that blends well with its surroundings"
     },
-    "Evolution5": {
+    "Heavier bones": {
         "Requirements": {},
         "Changes": {
             "fly": -1
         },
-        "Message": "Mesage goes here"
+        "Message": "heavier bones that weighed it down"
     },
-    "Evolution6": {
+    "Fire breath": {
         "Requirements": {},
         "Changes": {
             "heatRes": -2,
             "offense": 2
         },
-        "Message": "Mesage goes here"
+        "Message": "the ability to project fire from its lungs, but a much warmer body temperature for it"
     },
-    "Evolution7": {
+    "Mostly teeth": {
         "Requirements": {
             "diet": [
                 1,
@@ -82,25 +82,25 @@
             "size": -2,
             "diet": 2
         },
-        "Message": "Mesage goes here"
+        "Message": "a redistributed bone mass, growing and sharpening its teeth while shrinking its torso"
     },
-    "Evolution8": {
+    "Ice glands": {
         "Requirements": {},
         "Changes": {
             "offense": 1,
             "heatRes": 1,
             "fly": -2
         },
-        "Message": "Mesage goes here"
+        "Message": "glands that grow sharp, stalagtites of ice, perfect for mauling prey - but much heavier than flight could allow"
     },
-    "Evolution9": {
+    "Stone wings": {
         "Requirements": {},
         "Changes": {
             "fly": -2,
             "defense": 1,
             "offense": 1
         },
-        "Message": "Mesage goes here"
+        "Message": "wings of stone, perfect for protective postures and blunt trauma strikes - but obviously not fit for flying"
     },
     "Evolution10": {
         "Requirements": {},
