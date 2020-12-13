@@ -28,7 +28,7 @@ def makeChange(changes):
         
         for attribute, change in changes["Changes"].items():
             #print (type(next_state.stats[attribute]))
-            next_state.stats[attribute] += change
+            next_state[attribute] += change
         
         return next_state
 
@@ -39,13 +39,13 @@ def makeRequirement(changes):
     def requirement(state):
         for attribute, requirement in changes["Requirements"].items():
             if requirement[1] == "Equal":
-                if state.stats[attribute] != requirement[0]:
+                if stats[attribute] != requirement[0]:
                     return False
             if requirement[1] == "Less than":
-                if state.stats[attribute] <= requirement[0]:
+                if stats[attribute] <= requirement[0]:
                     return False
             if requirement[1] == "Greater than":
-                if state.stats[attribute] >= requirement[0]:
+                if stats[attribute] >= requirement[0]:
                     return False
         return True
     return requirement
@@ -84,7 +84,7 @@ def explain_full(sequence):
         #print(sequence[i])
         #print("Goal")
         #print(sequence[i+1])
-        path = search(sequence[i], sequence[i+1])
+        path = search(sequence[i].stats, sequence[i+1].stats)
         print("Generation " + str(i+1))
         for value in path:
             print(sequence[i].name + " " + value[1])
@@ -113,7 +113,7 @@ def search(start, finish):
         _, current_state = heappop(frontQueue)
     #----------------------------------------------------------------
     #is what happens if we find destination
-        if all([finish.stats[key] == current_state.stats[key] for key in current_state.stats.keys()]):
+        if all([finish[key] == current_state[key] for key in current_state.keys()]):
             #print ("finished")
             #print (cost_so_far[current_state])
             pathCells = []
@@ -146,7 +146,7 @@ def normalise(genome):
     pass
 # For now, blank
 def heuristic(state, name):
-    for name in state.stats:
-        if state.stats[name] < 0 or state.stats[name] > 2:
+    for name in state:
+        if state[name] < 0 or state[name] > 3:
             return inf
     return (0)
