@@ -5,63 +5,63 @@
             "Changes" : {
                 "offense" : 1
             },
-            "Message" : "grew sharper teeth, letting it rip in to the flesh of its hapless prey."
+            "Message" : " grew sharper teeth, letting it rip in to the flesh of its hapless prey."
         },
         "defense +1": {
             "Requirements" : {},
             "Changes" : {
                 "defense" : 1
             },
-            "Message" : "developed a sharper sense of hearing, letting it detect danger."
+            "Message" : " developed a sharper sense of hearing, allowing it to better detect danger."
         },
         "coldres +1": {
             "Requirements" : {},
             "Changes" : {
                 "coldRes" : 1
             },
-            "Message" : "developed a thick fur to keep it warm"
+            "Message" : " developed thicker fur to keep it warm"
         },
         "heatres +1": {
             "Requirements" : {},
             "Changes" : {
                 "heatRes" : 1
             },
-            "Message" : "developed its ability to cool itself evaporatively"
+            "Message" : " developed the ability to cool itself evaporatively"
         },
         "social +1": {
             "Requirements" : {},
             "Changes" : {
                 "social" : 1
             },
-            "Message" : "developed new vocalizations that let it signal its fellow pack."
+            "Message" : " developed new vocalizations that let it signal its fellow pack."
         },
         "size +1": {
             "Requirements" : {},
             "Changes" : {
                 "size" : 1
             },
-            "Message" : "grew bigger."
+            "Message" : " grew larger in size."
         },
         "diet +1": {
             "Requirements" : {},
             "Changes" : {
                 "diet" : 1
             },
-            "Message" : "Grew a stronger stomach, letting it digest both flora and fauna."
+            "Message" : " grew a stronger stomach, letting it digest both flora and fauna."
         },
         "walk +1": {
             "Requirements" : {},
             "Changes" : {
                 "walk" : 1
             },
-            "Message" : "Developed legs, allowing it to propel itself across land"
+            "Message" : " developed legs, allowing it to propel itself across land"
         },
         "fly +1": {
             "Requirements" : {},
             "Changes" : {
                 "fly" : 1
             },
-            "Message" : "Developed wings, allowing it to soar through the air."
+            "Message" : " developed wings, allowing it to soar through the air."
         },
         "swim +1 Req: Swim 0": {
             "Requirements" : {
@@ -70,84 +70,84 @@
             "Changes" : {
                 "swim" : 1
             },
-            "Message" : "has evolved to have gills, adapting it to aquatic environments."
+            "Message" : " has grown gills, adapting it to aquatic environments."
         },
         "swim +1": {
             "Requirements" : {},
             "Changes" : {
                 "swim" : 1
             },
-            "Message" : "Grew an extra fin, allowing it to swim more deptly."
+            "Message" : " grew an extra fin, allowing it to swim more deptly."
         },
         "offense -1": {
             "Requirements" : {},
             "Changes" : {
                 "offense" : -1
             },
-            "Message" : "duller teeth"
+            "Message" : " has grown duller teeth"
         },
         "defense -1": {
             "Requirements" : {},
             "Changes" : {
                 "defense" : -1
             },
-            "Message" : "lost senses"
+            "Message" : " senses have degraded, hindering it's ability to detect predators"
         },
         "coldres -1": {
             "Requirements" : {},
             "Changes" : {
                 "coldRes" : -1
             },
-            "Message" : "less fur"
+            "Message" : " has lost fur"
         },
         "heatres -1": {
             "Requirements" : {},
             "Changes" : {
                 "heatRes" : -1
             },
-            "Message" : "can't sweat as well"
+            "Message" : " produces less sweat"
         },
         "social -1": {
             "Requirements" : {},
             "Changes" : {
                 "social" : -1
             },
-            "Message" : "can't communicate as well"
+            "Message" : "'s vocal cords have degraded and it can't communicate as well"
         },
         "size -1": {
             "Requirements" : {},
             "Changes" : {
                 "size" : -1
             },
-            "Message" : "grew smaller"
+            "Message" : " grew smaller"
         },
         "diet -1": {
             "Requirements" : {},
             "Changes" : {
                 "diet" : -1
             },
-            "Message" : "Can't digest as many things"
+            "Message" : " can't digest as well"
         },
         "walk -1": {
             "Requirements" : {},
             "Changes" : {
                 "walk" : -1
             },
-            "Message" : "Can't move on land as well"
+            "Message" : " can't move on land as well"
         },
         "fly -1": {
             "Requirements" : {},
             "Changes" : {
                 "fly" : -1
             },
-            "Message" : "Can't fly as well."
+            "Message" : " can't fly as well."
         },
         "swim -1": {
             "Requirements" : {},
             "Changes" : {
                 "swim" : -1
             },
-            "Message" : "Lost a fin"
+            "Message" : " lost a fin"
         }
     }
 }

@@ -88,7 +88,7 @@ def explain_full(sequence):
         if len(path) != 0:
             print("Generation " + str(i+1))
             for value in path:
-                print(sequence[i].name + " " + value[1])
+                print(sequence[i].name + value[1])
             
 
 #Same as in P5, constructs the objects that we then search through
