@@ -99,6 +99,7 @@ def ga():
             print('Call GOAP here!')
             goap.explain_full(lineage)
             print('==================================')
+            break
             #time.sleep(5)
 
             # Reset tracked population & world states
