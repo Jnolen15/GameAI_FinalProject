@@ -42,10 +42,10 @@ def makeRequirement(changes):
                 if state.stats[attribute] != requirement[0]:
                     return False
             if requirement[1] == "Less than":
-                if state.stats[attribute] <= requirement[0]:
+                if state.stats[attribute] < requirement[0]:
                     return False
             if requirement[1] == "Greater than":
-                if state.stats[attribute] >= requirement[0]:
+                if state.stats[attribute] > requirement[0]:
                     return False
         return True
     return requirement
