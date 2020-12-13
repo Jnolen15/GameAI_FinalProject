@@ -142,11 +142,11 @@ def search(start, finish):
 def normalise(genome):
     for name in genome.stats:
         #print(name)
-        genome.stats[name] = int(genome.stats[name]/33)
+        genome.stats[name] = int(genome.stats[name]/20)
     pass
 # For now, blank
 def heuristic(state, name):
     for name in state.stats:
-        if state.stats[name] < 0 or state.stats[name] > 3:
+        if state.stats[name] < 0 or state.stats[name] > 4:
             return inf
     return (0)
