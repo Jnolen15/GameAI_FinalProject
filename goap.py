@@ -147,6 +147,6 @@ def normalise(genome):
 # For now, blank
 def heuristic(state, name):
     for name in state.stats:
-        if state.stats[name] < 0 or state.stats[name] > 2:
+        if state.stats[name] < 0 or state.stats[name] > 3:
             return inf
     return (0)
