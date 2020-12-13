@@ -58,12 +58,12 @@ def init():
     #Really hope this is correct global syntax
 
 # Main method that deals with running GOAP on each pair and outputting results
-def explain_full(sequence):
-    #Initialise the file
+def explain_full(sequence, world_state_indices):
+    # Initialise the file
     if not Explanations:
         init()
 
-    #Do same with changes
+    # Do same with changes
     global all_changes
     all_changes = []
     for name, change_original in Explanations["Operations"].items():
@@ -72,24 +72,23 @@ def explain_full(sequence):
         change = Change(name, checker, effector, 1, change_original["Message"])
         all_changes.append(change)
 
-    #Normalise all the values in the genomes
+    # Normalise all the values in the genomes
     for genome in sequence:
         normalise(genome)
 
-    # This shouldn't be necessary but:
-
-    # For now, going to run GOAP over every pair.
-    for i in range(len(sequence)-1):
-        #print("Start")
-        #print(sequence[i])
-        #print("Goal")
-        #print(sequence[i+1])
-        path = search(sequence[i], sequence[i+1])
+    # In this version, GOAP runs over ranges separated by world changes
+    for i in range(len(world_state_indices)):
+        # print("Start")
+        # print(sequence[i])
+        # print("Goal")
+        # print(sequence[i+1])
+        start = world_state_indices[i]
+        end = len(sequence) - 1 if i == len(world_state_indices) - 1 else world_state_indices[i + 1]
+        path = search(sequence[start], sequence[end])
         if len(path) != 0:
-            print("Generation " + str(i+1))
+            print("Generation " + str(world_state_indices[i] + 1) + " (describe how world changed here)")
             for value in path:
-                print(sequence[i].name + value[1])
-            
+                print(sequence[i].name + " " + value[1])
 
 #Same as in P5, constructs the objects that we then search through
 def graph(state):

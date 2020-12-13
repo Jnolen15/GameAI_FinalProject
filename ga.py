@@ -5,7 +5,8 @@ import time
 import numpy as np
 
 population_record = []
-worldState_record = []
+world_population_map = []
+worldState_record = {}
 population_size = 150
 
 
@@ -37,7 +38,7 @@ def ga():
     # Create world State and save in record
     worldState = randomWorld()
     print("WORLD STATE: ", worldState)
-    worldState_record = [worldState]
+    worldState_record = { 0: worldState}
     new_worldState = worldState
 
     # Generation Loop
@@ -93,18 +94,18 @@ def ga():
             lineage.reverse()
 
             print('Lineage: {}'.format(', '.join([p.name for p in lineage])))
-            print('Num world state changes: {}'.format(len(worldState_record)))
+            print('Num world state changes: {}'.format(len(worldState_record.keys())))
 
             # At this point, we have a lineage & world state record to pass to GOAP
             print('Call GOAP here!')
-            goap.explain_full(lineage)
+            goap.explain_full(lineage, list(worldState_record.keys()))
             print('==================================')
             break
             #time.sleep(5)
 
             # Reset tracked population & world states
             population_record.clear()
-            worldState_record = [worldState]
+            worldState_record = { 0: worldState }
             frontier_generation = 0
 
         def check_should_evolve_world():
@@ -135,7 +136,7 @@ def ga():
         # World mutation
         if check_should_evolve_world():
             new_worldState = get_evolved_world(worldState)
-            worldState_record.append(new_worldState)
+            worldState_record[frontier_generation] = (new_worldState)
             print('The world is changing!')
             #time.sleep(5)
 

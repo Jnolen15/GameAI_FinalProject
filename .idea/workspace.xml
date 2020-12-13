@@ -184,7 +184,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../pythonenv" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.stat_sheet_generator">
+  <component name="RunManager" selected="Python.ga">
     <configuration name="ga" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="GameAI_FinalProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -255,8 +255,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.stat_sheet_generator" />
         <item itemvalue="Python.ga" />
+        <item itemvalue="Python.stat_sheet_generator" />
         <item itemvalue="Python.ga_v2" />
       </list>
     </recent_temporary>
