@@ -94,7 +94,8 @@ def ga():
             lineage.reverse()
 
             print('Lineage: {}'.format(', '.join([p.name for p in lineage])))
-            print('Num world state changes: {}'.format(len(worldState_record.keys())))
+            print('Number of generations: {}'.format(len(lineage)))
+            print('Number of world state changes: {}'.format(len(worldState_record.keys())))
 
             # At this point, we have a lineage & world state record to pass to GOAP
             print('Call GOAP here!')
