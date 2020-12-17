@@ -134,7 +134,9 @@ def explain_full(sequence, lineage_world_map):
             if species_name != sequence[i].name:
                 print("The " + species_name + " species is now known as " + sequence[i].name + " due to changes in its genome.")
             for value in path:
-                print(sequence[i].name + " " + value[1])
+                print(sequence[i].name + value[1])
+
+    print(sequence[i].name + " has evolved to become the apex species of this world.")
 
 #Same as in P5, constructs the objects that we then search through
 # The world_search parameter alternates between using the list of world changes &

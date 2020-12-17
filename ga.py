@@ -98,7 +98,6 @@ def ga():
             print('Number of world state changes: {}'.format(len(worldState_record.keys())))
 
             # At this point, we have a lineage & world state record to pass to GOAP
-            print('Call GOAP here!')
             goap.explain_full(lineage, worldState_record)
             print('==================================')
             break
