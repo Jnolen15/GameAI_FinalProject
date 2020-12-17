@@ -156,149 +156,140 @@
             "Changes" : {
                 "offense" : 1
             },
-            "Message" : "."
+            "Message" : "Plants begin to die as a microbial pathogen spreads across the globe - a food shortage for the herbivores."
         },
         "defense +1": {
             "Requirements" : {},
             "Changes" : {
                 "defense" : 1
             },
-            "Message" : " developed a sharper sense of hearing, allowing it to better detect danger."
+            "Message" : " A swarm of mysterious, sharp-toothed parasites emerges from deep underground and begins to terrorize life on the surface"
         },
         "coldres +1": {
             "Requirements" : {},
             "Changes" : {
                 "coldRes" : 1
             },
-            "Message" : " developed thicker fur to keep it warm"
+            "Message" : "Rapid glacial expansion chills the air the world over."
         },
         "heatres +1": {
             "Requirements" : {},
             "Changes" : {
                 "heatRes" : 1
             },
-            "Message" : " developed the ability to cool itself evaporatively"
+            "Message" : "Cracks in the planet's mantle let flow veins of lava."
         },
         "social +1": {
             "Requirements" : {},
             "Changes" : {
                 "social" : 1
             },
-            "Message" : " developed new vocalizations that let it signal its fellow pack."
+            "Message" : "Several flatlands begin to develop rich soil, perfect for agriculture."
         },
         "size +1": {
             "Requirements" : {},
             "Changes" : {
                 "size" : 1
             },
-            "Message" : " grew larger in size."
+            "Message" : "Plant life evolves to produce swaths of oxygen, allowing larger lifeforms to flourish."
         },
         "diet +1": {
             "Requirements" : {},
             "Changes" : {
                 "diet" : 1
             },
-            "Message" : " grew a stronger stomach, letting it digest both flora and fauna."
+            "Message" : "The majority of plant lifeforms begin to grow thorns. Meat starts to look more and more appealing."
         },
         "walk +1": {
             "Requirements" : {},
             "Changes" : {
                 "walk" : 1
             },
-            "Message" : " developed legs, allowing it to propel itself across land"
+            "Message" : "Increased volcanic activity surfaces new islands across the world, creating new frontiers for land-dwellers"
         },
         "fly +1": {
             "Requirements" : {},
             "Changes" : {
                 "fly" : 1
             },
-            "Message" : " developed wings, allowing it to soar through the air."
-        },
-        "swim +1 Req: Swim 0": {
-            "Requirements" : {
-                "swim" : [1, "Less than"]
-            },
-            "Changes" : {
-                "swim" : 1
-            },
-            "Message" : " has grown gills, adapting it to aquatic environments."
+            "Message" : "The skies cloud with locusts and insects, creating an excellent source of food for the winged."
         },
         "swim +1": {
             "Requirements" : {},
             "Changes" : {
                 "swim" : 1
             },
-            "Message" : " grew an extra fin, allowing it to swim more deptly."
+            "Message" : "Floods everywhere! Month-long rains submerge many lands."
         },
         "offense -1": {
             "Requirements" : {},
             "Changes" : {
                 "offense" : -1
             },
-            "Message" : " has grown duller teeth"
+            "Message" : "An abundance of plant life makes hunting less necessary."
         },
         "defense -1": {
             "Requirements" : {},
             "Changes" : {
                 "defense" : -1
             },
-            "Message" : " senses have degraded, hindering it's ability to detect predators"
+            "Message" : "A new plant lifeform spreads across the world like wildfire. The humming noise it emits as air passes through its horn-like flower frustrates predators, masking the movement of their prey."
         },
         "coldres -1": {
             "Requirements" : {},
             "Changes" : {
                 "coldRes" : -1
             },
-            "Message" : " has lost fur"
+            "Message" : "Greenhouse gasses fill the stratosphere, causing temperatures to slowly climb."
         },
         "heatres -1": {
             "Requirements" : {},
             "Changes" : {
                 "heatRes" : -1
             },
-            "Message" : " produces less sweat"
+            "Message" : "Atmospheric changes create an era of fog and cloudy skies. The heat of the sun is suppressed. "
         },
         "social -1": {
             "Requirements" : {},
             "Changes" : {
                 "social" : -1
             },
-            "Message" : "'s vocal cords have degraded and it can't communicate as well"
+            "Message" : "A respiratory disease makes gathering in groups dangerous. The species of the world grow distant."
         },
         "size -1": {
             "Requirements" : {},
             "Changes" : {
                 "size" : -1
             },
-            "Message" : " grew smaller"
+            "Message" : "Oxygen levels drop, and those with large bodies begin to feel faint."
         },
         "diet -1": {
             "Requirements" : {},
             "Changes" : {
                 "diet" : -1
             },
-            "Message" : " can't digest as well"
+            "Message" : "A microbial pathogen breaks down the protein structures of most lifeforms. The long-term side effects are worrisome, but for the moment, everything is easier to chew."
         },
         "walk -1": {
             "Requirements" : {},
             "Changes" : {
                 "walk" : -1
             },
-            "Message" : " can't move on land as well"
+            "Message" : "Constant earthquakes and tremors destabilize the livelihoods of land-dwellers."
         },
         "fly -1": {
             "Requirements" : {},
             "Changes" : {
                 "fly" : -1
             },
-            "Message" : " can't fly as well."
+            "Message" : "An era of lightning storms makes flying a treacherous proposition."
         },
         "swim -1": {
             "Requirements" : {},
             "Changes" : {
                 "swim" : -1
             },
-            "Message" : " lost a fin"
+            "Message" : "Toxic fumes pollute many regions of the sea."
         }
     }
 }
