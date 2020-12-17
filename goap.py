@@ -75,7 +75,8 @@ def explain_full(sequence, world_state_indices):
     # Normalise all the values in the genomes
     for genome in sequence:
         normalise(genome)
-
+    #Keep track of the name
+    species_name = sequence[0].name
     # In this version, GOAP runs over ranges separated by world changes
     for i in range(len(world_state_indices)):
         # print("Start")
@@ -87,6 +88,8 @@ def explain_full(sequence, world_state_indices):
         path = search(sequence[start], sequence[end])
         if len(path) != 0:
             print("Generation " + str(world_state_indices[i] + 1) + " (describe how world changed here)")
+            if species_name != sequence[i].name:
+                print("The " + species_name + " species is now known as " + sequence[i].name " due to changes in its genome.")
             for value in path:
                 print(sequence[i].name + " " + value[1])
 
