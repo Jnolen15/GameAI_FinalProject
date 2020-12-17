@@ -59,6 +59,10 @@ def init():
 
 # Main method that deals with running GOAP on each pair and outputting results
 def explain_full(sequence, world_state_indices):
+
+    # Sequence = the list of ancestors in a lineage
+    # World state indices = at which ancestor indices did the world change?
+
     # Initialise the file
     if not Explanations:
         init()
@@ -77,15 +81,21 @@ def explain_full(sequence, world_state_indices):
         normalise(genome)
     #Keep track of the name
     species_name = sequence[0].name
+
     # In this version, GOAP runs over ranges separated by world changes
+    # (for example, world changes occur at 1, 25, 28, and 40)
+    # Each i in world state indices marks the beginning of a range
+    # Each i + 1 marks the end of that range
+    # For example, 1-25, 25-28, 28-40
     for i in range(len(world_state_indices)):
-        # print("Start")
-        # print(sequence[i])
-        # print("Goal")
-        # print(sequence[i+1])
+
+        # The start of the world range sequence
         start = world_state_indices[i]
+        # The end of the world range sequence
+        # (if i == len(world_state indices), just go use the final species as the end
         end = len(sequence) - 1 if i == len(world_state_indices) - 1 else world_state_indices[i + 1]
         path = search(sequence[start], sequence[end])
+
         if len(path) != 0:
             print("Generation " + str(world_state_indices[i] + 1) + " (describe how world changed here)")
             if species_name != sequence[i].name:
