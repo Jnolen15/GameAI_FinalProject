@@ -99,7 +99,7 @@ def ga():
 
             # At this point, we have a lineage & world state record to pass to GOAP
             print('Call GOAP here!')
-            goap.explain_full(lineage, list(worldState_record.keys()))
+            goap.explain_full(lineage, worldState_record)
             print('==================================')
             break
             #time.sleep(5)
@@ -119,7 +119,7 @@ def ga():
                 next_world_state.stats[stat] = val
 
             # Mega mutation
-            change = np.random.normal(loc=50, scale=10)
+            change = np.random.normal(loc=20, scale=5)
             direction = random.choice([-1, 1])
             stat_to_change = random.choice(list(current_world_state.stats.keys()))
 

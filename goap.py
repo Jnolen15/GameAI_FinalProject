@@ -13,6 +13,9 @@ from math import inf, ceil
 Explanations = False
 #Do same with changes
 all_changes = False
+#Do same with world changes
+all_world_changes = False
+
 #Going off of how P5 did it:
 
 Change = namedtuple('Change', ['name', 'check', 'effect', "cost", "description"])
@@ -58,10 +61,10 @@ def init():
     #Really hope this is correct global syntax
 
 # Main method that deals with running GOAP on each pair and outputting results
-def explain_full(sequence, world_state_indices):
-
-    # Sequence = the list of ancestors in a lineage
-    # World state indices = at which ancestor indices did the world change?
+# Parameters:
+# - sequence = the list of ancestors in a lineage
+# - lineage_world_map = a dictionary mapping indices from lineage to world states
+def explain_full(sequence, lineage_world_map):
 
     # Initialise the file
     if not Explanations:
@@ -76,44 +79,79 @@ def explain_full(sequence, world_state_indices):
         change = Change(name, checker, effector, 1, change_original["Message"])
         all_changes.append(change)
 
+    # World changes
+    global all_world_changes
+    all_world_changes = []
+    for name, change_original in Explanations["WorldOperations"].items():
+        checker = makeRequirement(change_original)
+        effector = makeChange(change_original)
+        change = Change(name, checker, effector, 1, change_original["Message"])
+        all_world_changes.append(change)
+
     # Normalise all the values in the genomes
     for genome in sequence:
         normalise(genome)
+
+
+    # Normalise all world sequence genomes:
+    for key in lineage_world_map.keys():
+        normalise(lineage_world_map[key])
+
     #Keep track of the name
     species_name = sequence[0].name
 
     # In this version, GOAP runs over ranges separated by world changes
-    # (for example, world changes occur at 1, 25, 28, and 40)
-    # Each i in world state indices marks the beginning of a range
-    # Each i + 1 marks the end of that range
-    # For example, 1-25, 25-28, 28-40
-    for i in range(len(world_state_indices)):
+    # (for example, world changes occur at 1, 25, 28, and 40. Then 1-25, 25-28, 28-40, and 40-end
+    # each require explanations
+    # Each item in lineage_world_map is (lineage_index, corresponding_world_state)
+    lineage_world_map_items = list(lineage_world_map.items())
+    for i in range(len(lineage_world_map_items)):
 
-        # The start of the world range sequence
-        start = world_state_indices[i]
-        # The end of the world range sequence
-        # (if i == len(world_state indices), just go use the final species as the end
-        end = len(sequence) - 1 if i == len(world_state_indices) - 1 else world_state_indices[i + 1]
-        path = search(sequence[start], sequence[end])
+        # The start of the world range sequence is the lineage index
+        # of the current item
+        species_start_index = lineage_world_map_items[i][0]
+        # The end of the world range sequence is either
+        # the lineage index of the next item (i + 1), or the final species if we are at the end
+        if i == len(lineage_world_map_items) - 1:
+            species_end_index = len(sequence) - 1
+        else:
+            species_end_index = lineage_world_map_items[i + 1][0]
+        # Find an explantion path from the start to the end of the range
+        path = search(sequence[species_start_index], sequence[species_end_index])
+
+        # Next, explain the change in world state
+        if i < len(lineage_world_map_items) - 1:
+            # The value of the current lineage_world_map item
+            world_start = lineage_world_map_items[i][1]
+            # The value of the next lineage_world_map item (i + 1)
+            world_end = lineage_world_map_items[i+1][1]
+            world_path = search(world_start, world_end, world_search=True)
+            if len(world_path) != 0:
+                for value in world_path:
+                    print(value[1])
 
         if len(path) != 0:
-            print("Generation " + str(world_state_indices[i] + 1) + " (describe how world changed here)")
             if species_name != sequence[i].name:
-                print("The " + species_name + " species is now known as " + sequence[i].name " due to changes in its genome.")
+                print("The " + species_name + " species is now known as " + sequence[i].name + " due to changes in its genome.")
             for value in path:
                 print(sequence[i].name + " " + value[1])
 
 #Same as in P5, constructs the objects that we then search through
-def graph(state):
+# The world_search parameter alternates between using the list of world changes &
+# the list of species changes. It's passed in from search.
+def graph(state, world_search=False):
     # Iterates through all recipes/rules, checking which are valid in the given state.
     # If a rule is valid, it returns the rule's name, the resulting state after application
     # to the given state, and the cost for the rule.
-    for r in all_changes:
+    changes = all_world_changes if world_search else all_changes
+    for r in changes:
         if r.check(state):
             yield (r.name, r.effect(state), r.cost, r.description)
 
 # Actually runs the GOAP
-def search(start, finish):
+# The world_search parameter alternates between using the list of world changes &
+# the list of species changes. It defaults to species.
+def search(start, finish, world_search=False):
     frontQueue = []
     heappush(frontQueue, (0, start))
     action_to_state = {}
@@ -139,7 +177,7 @@ def search(start, finish):
             return pathCells
     #-----------------------------------------------------------------
 
-        for name, new_state, cost_to_state, description in graph(current_state):
+        for name, new_state, cost_to_state, description in graph(current_state, world_search):
             cost = cost_to_state
             new_cost = cost_so_far[current_state] + cost
             if new_cost != inf and (new_state not in cost_so_far or new_cost < cost_so_far[new_state]):
