@@ -236,6 +236,6 @@ def gen_children(parent1, parent2, world_state):
 
 if __name__ == "__main__":
     ga()
-    print(active_world_explanation)
-    print(active_species_explanation)
-    print('TEST EXPLANATION: ' + generate_explanation(active_species_explanation, active_world_explanation))
+    #print(active_world_explanation)
+    #print(active_species_explanation)
+    print('Summary: ' + generate_explanation(active_species_explanation, active_world_explanation))

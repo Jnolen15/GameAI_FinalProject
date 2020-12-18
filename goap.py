@@ -3,7 +3,7 @@ import Species
 from heapq import heappop, heappush
 from collections import namedtuple, defaultdict, OrderedDict
 from math import inf, ceil
-from produce_explanations import generate_explanation
+from produce_explanations import generate_starter_world_explanation
 # put goap stuff here
 
 #Model will be that all changes from 1 genome to the next will get normalised to 1, 2, or 3 (probably), 
@@ -135,6 +135,8 @@ def explain_full(sequence, lineage_world_map,
     if len(initial_world_path) != 0:
         for state, message, explain_map in initial_world_path:
             update_world_change_map(explain_map)
+    print(generate_starter_world_explanation(world_changes_map))
+
     """
     initial_species_path = search(Species.species(), sequence[0])
     if len(initial_species_path) != 0:

@@ -12,6 +12,7 @@
       <change beforePath="$PROJECT_DIR$/Species.py" beforeDir="false" afterPath="$PROJECT_DIR$/Species.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ga.py" beforeDir="false" afterPath="$PROJECT_DIR$/ga.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/goap.py" beforeDir="false" afterPath="$PROJECT_DIR$/goap.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/produce_explanations.py" beforeDir="false" afterPath="$PROJECT_DIR$/produce_explanations.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
