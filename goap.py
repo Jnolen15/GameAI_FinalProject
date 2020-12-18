@@ -1,7 +1,9 @@
 import json
+import Species
 from heapq import heappop, heappush
 from collections import namedtuple, defaultdict, OrderedDict
 from math import inf, ceil
+from produce_explanations import generate_explanation
 # put goap stuff here
 
 #Model will be that all changes from 1 genome to the next will get normalised to 1, 2, or 3 (probably), 
@@ -64,7 +66,33 @@ def init():
 # Parameters:
 # - sequence = the list of ancestors in a lineage
 # - lineage_world_map = a dictionary mapping indices from lineage to world states
-def explain_full(sequence, lineage_world_map):
+def explain_full(sequence, lineage_world_map,
+                 current_species_explain_map, current_world_explain_map):
+
+    # Used to keep track of the terms we used to explain changes in the species
+    species_changes_map = {}
+    # Used to keep track of the terms we used to explain changes in the world
+    world_changes_map = {}
+
+    def update_species_change_map(explain_map):
+        # Collect changes and add them to the species change map
+        for change_key, change_cause in explain_map.items():
+            # If the path includes multiple changes to the same stat, add to the list
+            if change_key in species_changes_map:
+                species_changes_map[change_key].append(change_cause)
+            # Else make a new list
+            else:
+                species_changes_map[change_key] = [change_cause]
+
+    def update_world_change_map(explain_map):
+        # Collect changes and add them to the world change map
+        for change_key, change_cause in explain_map.items():
+            # If the path includes multiple changes to the same stat, add to the list
+            if change_key in world_changes_map:
+                world_changes_map[change_key].append(change_cause)
+            # Else make a new list
+            else:
+                world_changes_map[change_key] = [change_cause]
 
     # Initialise the file
     if not Explanations:
@@ -100,6 +128,20 @@ def explain_full(sequence, lineage_world_map):
     #Keep track of the name
     species_name = sequence[0].name
 
+
+    #Explain the initial species and world states
+
+    initial_world_path = search(Species.species(), lineage_world_map[0], world_search=True)
+    if len(initial_world_path) != 0:
+        for state, message, explain_map in initial_world_path:
+            update_world_change_map(explain_map)
+    """
+    initial_species_path = search(Species.species(), sequence[0])
+    if len(initial_species_path) != 0:
+        for state, message, explain_map in initial_species_path:
+            update_species_change_map(explain_map)
+    """
+
     # In this version, GOAP runs over ranges separated by world changes
     # (for example, world changes occur at 1, 25, 28, and 40. Then 1-25, 25-28, 28-40, and 40-end
     # each require explanations
@@ -119,27 +161,58 @@ def explain_full(sequence, lineage_world_map):
         # Find an explantion path from the start to the end of the range
         path = search(sequence[species_start_index], sequence[species_end_index])
 
+
+
+        if len(path) != 0:
+            print("Generation " + str(lineage_world_map_items[i][0] + 1))
+            if species_name != sequence[i].name:
+                print("The " + species_name + " species is now known as " + sequence[i].name + " due to changes in its genome.")
+                species_name = sequence[i].name
+            for state, message, explain_map in path:
+                print(sequence[i].name + message)
+                update_species_change_map(explain_map)
+
+        if species_name != sequence[i].name:
+            print("The " + species_name + " species is now known as " + sequence[i].name + \
+                  " due to changes in its genome.")
+        print("After " + str(lineage_world_map_items[-1][0] + 1) + " generations, " + sequence[i].name + " has evolved to become the apex species of this world.")
+
+        #print('TEST EXPLANATION: ' + generate_explanation(species_changes_map, current_world_explain_map))
         # Next, explain the change in world state
         if i < len(lineage_world_map_items) - 1:
             # The value of the current lineage_world_map item
             world_start = lineage_world_map_items[i][1]
             # The value of the next lineage_world_map item (i + 1)
-            world_end = lineage_world_map_items[i+1][1]
+            world_end = lineage_world_map_items[i + 1][1]
             world_path = search(world_start, world_end, world_search=True)
             if len(world_path) != 0:
-                for value in world_path:
-                    print(value[1])
+                for state, message, explain_map in world_path:
+                    print(message)
+                    update_world_change_map(explain_map)
 
-        if len(path) != 0:
-            print ("Generation " + str(lineage_world_map_items[i][0] + 1))
-            if species_name != sequence[i].name:
-                print("The " + species_name + " species is now known as " + sequence[i].name + " due to changes in its genome.")
-                species_name = sequence[i].name
-            for value in path:
-                print(sequence[i].name + value[1])
-    if species_name != sequence[i].name:
-        print("The " + species_name + " species is now known as " + sequence[i].name + " due to changes in its genome.")
-    print("After " + str(lineage_world_map_items[-1][0] + 1)+ " generations, " + sequence[i].name + " has evolved to become the apex species of this world.")
+
+
+
+    # Absorb species changes into active species explanations
+    for change_key, change_causes in species_changes_map.items():
+        # If the species already has evolutions for the stat change, add to the list
+        if change_key in current_species_explain_map:
+            current_species_explain_map[change_key].extend(change_causes)
+        # Else make a new list
+        else:
+            current_species_explain_map[change_key] = change_causes
+
+        # remove duplicates
+        current_species_explain_map[change_key] = list(set(current_species_explain_map[change_key]))
+
+    # Absorb world changes into active world explanations
+    for change_key, change_causes in world_changes_map.items():
+        if change_key in current_world_explain_map:
+            current_world_explain_map[change_key].extend(change_causes)
+        else:
+            current_world_explain_map[change_key] = change_causes
+
+        current_world_explain_map[change_key] = list(set(current_world_explain_map[change_key]))
 
 #Same as in P5, constructs the objects that we then search through
 # The world_search parameter alternates between using the list of world changes &
@@ -175,8 +248,13 @@ def search(start, finish, world_search=False):
             pathCells = []
             cs = current_state
             while cs is not start:
-                action = action_to_state[cs] #action to lead up to previous state
-                pathCells.append((cs, action)) #append previous state and the action
+                action_name = action_to_state[cs] #action to lead up to previous state
+
+                explanation_source = Explanations["WorldOperations" if world_search else "Operations"]
+                action = explanation_source[action_name]["Message"]
+                explanation_map = explanation_source[action_name]["ExplanationMap"]
+
+                pathCells.append((cs, action, explanation_map)) #append previous state and the action
                 cs = came_from[cs] #go back one, this has to be on the end because otherwise we might be putting in None. I guess I can do while came_from[cs] is not none but too late im sticking with it
             pathCells.reverse()
             return pathCells
@@ -191,7 +269,7 @@ def search(start, finish, world_search=False):
                 priority = new_cost + heuristic(new_state, name)
                 heappush(frontQueue, (priority, new_state))
                 came_from[new_state] = current_state
-                action_to_state[new_state] = description
+                action_to_state[new_state] = name
     pass
 
 # Normalises the values of the genome into a small variety of integers

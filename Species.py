@@ -62,7 +62,7 @@ class species:
         penalty = 0
         attributes = self.stats.keys()
         for attribute in attributes:
-          penalty += (self.stats[attribute] - world.stats[attribute])
+          penalty -= abs(self.stats[attribute] - world.stats[attribute])
 
         return penalty
 

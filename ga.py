@@ -3,18 +3,29 @@ import goap
 import random
 import time
 import numpy as np
+from produce_explanations import  generate_explanation
 
 population_record = []
 world_population_map = []
 worldState_record = {}
 population_size = 150
 
+# Dictionaries that map positive and negative stat changes in the world
+# and species, to nouns that explain them (e.g. heatRes+ : volcanoes)
+active_world_explanation = {}
+active_species_explanation = {}
 
 def randomSpecies(): # Creates a species with random stats This can be improved
     randSpecies = Species.species(random.randint(0, 9), random.randint(0, 9), random.randint(0, 9), \
                                 random.randint(0, 9), random.randint(0, 9), random.randint(0, 99), \
                                 random.randint(0, 99), random.randint(0, 99), random.randint(0, 99),\
                                 random.randint(0, 99))
+
+    randSpecies = Species.species()
+    stats_to_change = random.choices(list(randSpecies.stats.keys()), k=2)
+    for stat_to_change in stats_to_change:
+        randSpecies.stats[stat_to_change] = random.randrange(5, 20)
+
     return randSpecies
 
 
@@ -23,6 +34,11 @@ def randomWorld(): # Creates a world with random stats This can be improved
                                 random.randint(49, 99), random.randint(49, 99), random.randint(0, 99), \
                                 random.randint(0, 99), random.randint(0, 99), random.randint(0, 99),\
                                 random.randint(0, 99), "WORLD", "The world State")
+
+    randWorld = Species.species()
+    stats_to_change = random.choices(list(randWorld.stats.keys()), k=2)
+    for stat_to_change in stats_to_change:
+        randWorld.stats[stat_to_change] = random.randrange(80, 100)
     return randWorld
 
 
@@ -37,6 +53,7 @@ def ga():
 
     # Create world State and save in record
     worldState = randomWorld()
+
     print("WORLD STATE: ", worldState)
     worldState_record = { 0: worldState}
     new_worldState = worldState
@@ -67,7 +84,7 @@ def ga():
             # stubbing this out. For now, it happens every so often
             #return random.random() < 0.075
             # Picking based on the fitness of the best current population
-            if max_child.calc_fitness(worldState) > 0:
+            if max_child.calc_fitness(worldState) > -10:
                 return True
 
         # If we've reached an evolutionary milestone:
@@ -98,7 +115,9 @@ def ga():
             print('Number of world state changes: {}'.format(len(worldState_record.keys())))
 
             # At this point, we have a lineage & world state record to pass to GOAP
-            goap.explain_full(lineage, worldState_record)
+            goap.explain_full(lineage, worldState_record, \
+                              active_species_explanation, active_world_explanation)
+
             print('==================================')
             break
             #time.sleep(5)
@@ -217,3 +236,6 @@ def gen_children(parent1, parent2, world_state):
 
 if __name__ == "__main__":
     ga()
+    print(active_world_explanation)
+    print(active_species_explanation)
+    print('TEST EXPLANATION: ' + generate_explanation(active_species_explanation, active_world_explanation))

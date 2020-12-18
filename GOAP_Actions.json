@@ -5,12 +5,18 @@
             "Changes" : {
                 "offense" : 1
             },
-            "Message" : " grew sharper teeth, letting it rip into the flesh of it's prey."
+            "ExplanationMap": {
+                "offense+": "sharper teeth"
+            },
+            "Message" : " grew sharper teeth, letting it rip into the flesh of its prey."
         },
         "defense +1": {
             "Requirements" : {},
             "Changes" : {
                 "defense" : 1
+            },
+            "ExplanationMap": {
+                "defense+": "sharper hearing"
             },
             "Message" : " developed a sharper sense of hearing, allowing it to better detect danger."
         },
@@ -19,12 +25,18 @@
             "Changes" : {
                 "coldRes" : 1
             },
+            "ExplanationMap": {
+                "coldRes+": "thicker fur"
+            },
             "Message" : " developed thicker fur to keep it warm"
         },
         "heatres +1": {
             "Requirements" : {},
             "Changes" : {
                 "heatRes" : 1
+            },
+            "ExplanationMap": {
+                "heatRes+": "evaporative cooling"
             },
             "Message" : " developed the ability to cool itself evaporatively"
         },
@@ -33,12 +45,18 @@
             "Changes" : {
                 "social" : 1
             },
-            "Message" : " developed new vocalizations that let it signal its fellow pack."
+            "ExplanationMap": {
+                "social+": "new vocalisations"
+            },
+            "Message" : " developed new vocalisations that let it signal its fellow pack."
         },
         "size +1": {
             "Requirements" : {},
             "Changes" : {
                 "size" : 1
+            },
+            "ExplanationMap": {
+                "size+": "larger body"
             },
             "Message" : " grew larger in size."
         },
@@ -47,6 +65,9 @@
             "Changes" : {
                 "diet" : 1
             },
+            "ExplanationMap": {
+                "diet+": "a stronger stomach"
+            },
             "Message" : " grew a stronger stomach, letting it digest both flora and fauna."
         },
         "walk +1": {
@@ -54,12 +75,18 @@
             "Changes" : {
                 "walk" : 1
             },
+            "ExplanationMap": {
+                "walk+": "improved legs"
+            },
             "Message" : " developed legs, allowing it to propel itself across land"
         },
         "fly +1": {
             "Requirements" : {},
             "Changes" : {
                 "fly" : 1
+            },
+            "ExplanationMap": {
+                "fly+": "wings"
             },
             "Message" : " developed wings, allowing it to soar through the air."
         },
@@ -70,12 +97,18 @@
             "Changes" : {
                 "swim" : 1
             },
+            "ExplanationMap": {
+                "swim+": "gills"
+            },
             "Message" : " has grown gills, adapting it to aquatic environments."
         },
         "swim +1": {
             "Requirements" : {},
             "Changes" : {
                 "swim" : 1
+            },
+            "ExplanationMap": {
+                "swim+": "extra fins"
             },
             "Message" : " grew an extra fin, allowing it to swim more deptly."
         },
@@ -84,12 +117,18 @@
             "Changes" : {
                 "offense" : -1
             },
+            "ExplanationMap": {
+                "offense-": "duller teeth"
+            },
             "Message" : " has grown duller teeth"
         },
         "defense -1": {
             "Requirements" : {},
             "Changes" : {
                 "defense" : -1
+            },
+            "ExplanationMap": {
+                "defense-": "degraded senses"
             },
             "Message" : " senses have degraded, hindering it's ability to detect predators"
         },
@@ -98,12 +137,18 @@
             "Changes" : {
                 "coldRes" : -1
             },
+            "ExplanationMap": {
+                "coldRes-": "lost fur"
+            },
             "Message" : " has lost fur"
         },
         "heatres -1": {
             "Requirements" : {},
             "Changes" : {
                 "heatRes" : -1
+            },
+            "ExplanationMap": {
+                "heatRes-": "smaller sweat glands"
             },
             "Message" : " produces less sweat"
         },
@@ -112,12 +157,18 @@
             "Changes" : {
                 "social" : -1
             },
+            "ExplanationMap": {
+                "social-": "vocal cords"
+            },
             "Message" : "'s vocal cords have degraded and it can't communicate as well"
         },
         "size -1": {
             "Requirements" : {},
             "Changes" : {
                 "size" : -1
+            },
+            "ExplanationMap": {
+                "size-": "smaller body"
             },
             "Message" : " grew smaller"
         },
@@ -126,12 +177,18 @@
             "Changes" : {
                 "diet" : -1
             },
+            "ExplanationMap": {
+                "diet-": "a regressed digestion system"
+            },
             "Message" : " can't digest as well"
         },
         "walk -1": {
             "Requirements" : {},
             "Changes" : {
                 "walk" : -1
+            },
+            "ExplanationMap": {
+                "walk-": "inferior legs"
             },
             "Message" : " can't move on land as well"
         },
@@ -140,12 +197,18 @@
             "Changes" : {
                 "fly" : -1
             },
+            "ExplanationMap": {
+                "fly-": "reduced flight"
+            },
             "Message" : " can't fly as well."
         },
         "swim -1": {
             "Requirements" : {},
             "Changes" : {
                 "swim" : -1
+            },
+            "ExplanationMap": {
+                "swim-": "fewer fins"
             },
             "Message" : " lost a fin"
         }
@@ -156,12 +219,18 @@
             "Changes" : {
                 "offense" : 1
             },
+            "ExplanationMap": {
+                "offense+": "food shortage"
+            },
             "Message" : "Plants begin to die as a microbial pathogen spreads across the globe - a food shortage for the herbivores."
         },
         "defense +1": {
             "Requirements" : {},
             "Changes" : {
                 "defense" : 1
+            },
+            "ExplanationMap": {
+                "defense+": "parasite swarm"
             },
             "Message" : " A swarm of mysterious, sharp-toothed parasites emerges from deep underground and begins to terrorize life on the surface"
         },
@@ -170,12 +239,18 @@
             "Changes" : {
                 "coldRes" : 1
             },
+            "ExplanationMap": {
+                "coldRes+": "chill air"
+            },
             "Message" : "Rapid glacial expansion chills the air the world over."
         },
         "heatres +1": {
             "Requirements" : {},
             "Changes" : {
                 "heatRes" : 1
+            },
+            "ExplanationMap": {
+                "heatRes+": "lava"
             },
             "Message" : "Cracks in the planet's mantle let flow veins of lava."
         },
@@ -184,12 +259,18 @@
             "Changes" : {
                 "social" : 1
             },
+            "ExplanationMap": {
+                "social+": "opportunity for agriculture"
+            },
             "Message" : "Several flatlands begin to develop rich soil, perfect for agriculture."
         },
         "size +1": {
             "Requirements" : {},
             "Changes" : {
                 "size" : 1
+            },
+            "ExplanationMap": {
+                "size+": "higher oxygen density"
             },
             "Message" : "Plant life evolves to produce swaths of oxygen, allowing larger lifeforms to flourish."
         },
@@ -198,12 +279,18 @@
             "Changes" : {
                 "diet" : 1
             },
+            "ExplanationMap": {
+                "diet+": "thorny plant life"
+            },
             "Message" : "The majority of plant lifeforms begin to grow thorns. Meat starts to look more and more appealing."
         },
         "walk +1": {
             "Requirements" : {},
             "Changes" : {
                 "walk" : 1
+            },
+            "ExplanationMap": {
+                "walk+": "new islands"
             },
             "Message" : "Increased volcanic activity surfaces new islands across the world, creating new frontiers for land-dwellers"
         },
@@ -212,12 +299,18 @@
             "Changes" : {
                 "fly" : 1
             },
+            "ExplanationMap": {
+                "fly+": "increased airborne food sources"
+            },
             "Message" : "The skies cloud with locusts and insects, creating an excellent source of food for the winged."
         },
         "swim +1": {
             "Requirements" : {},
             "Changes" : {
                 "swim" : 1
+            },
+            "ExplanationMap": {
+                "swim+": "floods"
             },
             "Message" : "Floods everywhere! Month-long rains submerge many lands."
         },
@@ -226,12 +319,18 @@
             "Changes" : {
                 "offense" : -1
             },
+            "ExplanationMap": {
+                "offense-": "plentiful plant life"
+            },
             "Message" : "An abundance of plant life makes hunting less necessary."
         },
         "defense -1": {
             "Requirements" : {},
             "Changes" : {
                 "defense" : -1
+            },
+            "ExplanationMap": {
+                "defense-": "humming plants"
             },
             "Message" : "A new plant lifeform spreads across the world like wildfire. The humming noise it emits as air passes through its horn-like flower frustrates predators, masking the movement of their prey."
         },
@@ -240,12 +339,18 @@
             "Changes" : {
                 "coldRes" : -1
             },
+            "ExplanationMap": {
+                "coldRes-": "greenhouse gasses"
+            },
             "Message" : "Greenhouse gasses fill the stratosphere, causing temperatures to slowly climb."
         },
         "heatres -1": {
             "Requirements" : {},
             "Changes" : {
                 "heatRes" : -1
+            },
+            "ExplanationMap": {
+                "heatRes-": "blocked-out sun"
             },
             "Message" : "Atmospheric changes create an era of fog and cloudy skies. The heat of the sun is suppressed. "
         },
@@ -254,12 +359,18 @@
             "Changes" : {
                 "social" : -1
             },
+            "ExplanationMap": {
+                "social-": "respiratory disease"
+            },
             "Message" : "A respiratory disease makes gathering in groups dangerous. The species of the world grow distant."
         },
         "size -1": {
             "Requirements" : {},
             "Changes" : {
                 "size" : -1
+            },
+            "ExplanationMap": {
+                "size-": "lower oxygen levels"
             },
             "Message" : "Oxygen levels drop, and those with large bodies begin to feel faint."
         },
@@ -268,12 +379,18 @@
             "Changes" : {
                 "diet" : -1
             },
+            "ExplanationMap": {
+                "diet-": "protein pathogen"
+            },
             "Message" : "A microbial pathogen breaks down the protein structures of most lifeforms. The long-term side effects are worrisome, but for the moment, everything is easier to chew."
         },
         "walk -1": {
             "Requirements" : {},
             "Changes" : {
                 "walk" : -1
+            },
+            "ExplanationMap": {
+                "walk-": "earthquakes and tremors"
             },
             "Message" : "Constant earthquakes and tremors destabilize the livelihoods of land-dwellers."
         },
@@ -282,6 +399,9 @@
             "Changes" : {
                 "fly" : -1
             },
+            "ExplanationMap": {
+                "fly-": "lightning storms"
+            },
             "Message" : "An era of lightning storms makes flying a treacherous proposition."
         },
         "swim -1": {
@@ -289,7 +409,10 @@
             "Changes" : {
                 "swim" : -1
             },
-            "Message" : "Toxic fumes pollute many regions of the sea."
+            "ExplanationMap": {
+                "swim-": "toxic geysers"
+            },
+            "Message" : "Toxic, underwater geysers pollute many regions of the sea."
         }
     }
 }
