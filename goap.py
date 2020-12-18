@@ -131,6 +131,7 @@ def explain_full(sequence, lineage_world_map):
                     print(value[1])
 
         if len(path) != 0:
+            print ("Generation " + str(lineage_world_map_items[i][0] + 1))
             if species_name != sequence[i].name:
                 print("The " + species_name + " species is now known as " + sequence[i].name + " due to changes in its genome.")
                 species_name = sequence[i].name
